@@ -78,7 +78,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Profile Image - Centered at top */}
+        {/* Profile Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
