@@ -60,13 +60,14 @@ const AnimatedCounter = ({ value, suffix = '' }) => {
   return <span>{displayValue}{suffix}</span>
 }
 
-// Hacker Terminal Component
+// Hacker Terminal Component with infinite loop
 const HackerTerminal = () => {
   const [line1, setLine1] = useState('')
   const [line2, setLine2] = useState('')
   const [line3, setLine3] = useState('')
   const [line4, setLine4] = useState('')
   const [showFinalCursor, setShowFinalCursor] = useState(false)
+  const [cycle, setCycle] = useState(0) // Trigger to restart animation
 
   const text1 = './whoami.sh'
   const text2 = '[+] Scanning developer profile...'
@@ -74,10 +75,18 @@ const HackerTerminal = () => {
   const text4 = "> I'm simply the best Full-Stack Developer <"
 
   useEffect(() => {
-    let timeout1, timeout2, timeout3, timeout4, timeout5
+    // Reset all states at start of each cycle
+    setLine1('')
+    setLine2('')
+    setLine3('')
+    setLine4('')
+    setShowFinalCursor(false)
+
+    const intervals = []
+    const timeouts = []
 
     // Start typing line 1 after 500ms
-    timeout1 = setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       let i = 0
       const interval1 = setInterval(() => {
         if (i <= text1.length) {
@@ -87,10 +96,11 @@ const HackerTerminal = () => {
           clearInterval(interval1)
         }
       }, 80)
-    }, 500)
+      intervals.push(interval1)
+    }, 500))
 
     // Start typing line 2 after 2s
-    timeout2 = setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       let i = 0
       const interval2 = setInterval(() => {
         if (i <= text2.length) {
@@ -100,10 +110,11 @@ const HackerTerminal = () => {
           clearInterval(interval2)
         }
       }, 30)
-    }, 2000)
+      intervals.push(interval2)
+    }, 2000))
 
     // Start typing line 3 after 4s
-    timeout3 = setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       let i = 0
       const interval3 = setInterval(() => {
         if (i <= text3.length) {
@@ -113,10 +124,11 @@ const HackerTerminal = () => {
           clearInterval(interval3)
         }
       }, 30)
-    }, 4000)
+      intervals.push(interval3)
+    }, 4000))
 
     // Start typing line 4 after 6s
-    timeout4 = setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       let i = 0
       const interval4 = setInterval(() => {
         if (i <= text4.length) {
@@ -126,21 +138,24 @@ const HackerTerminal = () => {
           clearInterval(interval4)
         }
       }, 50)
-    }, 6000)
+      intervals.push(interval4)
+    }, 6000))
 
     // Show final cursor after 10s
-    timeout5 = setTimeout(() => {
+    timeouts.push(setTimeout(() => {
       setShowFinalCursor(true)
-    }, 10000)
+    }, 10000))
+
+    // Restart the whole animation after 14 seconds (loop)
+    timeouts.push(setTimeout(() => {
+      setCycle(c => c + 1)
+    }, 14000))
 
     return () => {
-      clearTimeout(timeout1)
-      clearTimeout(timeout2)
-      clearTimeout(timeout3)
-      clearTimeout(timeout4)
-      clearTimeout(timeout5)
+      intervals.forEach(i => clearInterval(i))
+      timeouts.forEach(t => clearTimeout(t))
     }
-  }, [])
+  }, [cycle])
 
   return (
     <div className="bg-black/90 border-2 border-green-500/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(34,197,94,0.3)]">
