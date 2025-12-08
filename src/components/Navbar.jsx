@@ -36,7 +36,7 @@ const Navbar = ({ isDark, toggleDarkMode }) => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-4' : 'py-6'
+        isScrolled ? 'bg-black/90 border-b border-green-500/30 py-4 shadow-[0_0_20px_rgba(34,197,94,0.2)]' : 'py-6'
       }`}
     >
       <div className="container-custom flex items-center justify-between">
@@ -47,11 +47,13 @@ const Navbar = ({ isDark, toggleDarkMode }) => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <img
-            src="/logo.png"
-            alt="Elidrissi Fullstack"
-            className="h-20 w-auto"
-          />
+          <div className="p-2 border-2 border-green-500 rounded-xl shadow-[0_0_15px_rgba(34,197,94,0.4)]">
+            <img
+              src="/logo.png"
+              alt="Elidrissi Fullstack"
+              className="h-16 w-auto"
+            />
+          </div>
         </motion.a>
 
         {/* Desktop Navigation */}
@@ -60,13 +62,19 @@ const Navbar = ({ isDark, toggleDarkMode }) => {
             <motion.button
               key={link.name}
               onClick={() => handleNavClick(link.href)}
-              className="text-gray-300 hover:text-green-400 transition-colors duration-300 font-mono font-medium"
+              className="relative text-gray-300 font-mono font-medium px-4 py-2 rounded-lg border border-transparent hover:border-green-500 hover:text-green-400 hover:bg-green-500/10 hover:shadow-[0_0_20px_rgba(34,197,94,0.3),0_10px_30px_rgba(34,197,94,0.2)] transition-all duration-300"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -2 }}
+              whileHover={{
+                y: -5,
+                scale: 1.1,
+                rotateX: 10,
+                z: 50
+              }}
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
             >
-              {link.name}
+              <span className="relative z-10">{link.name}</span>
             </motion.button>
           ))}
 
