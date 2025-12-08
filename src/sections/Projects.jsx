@@ -64,14 +64,14 @@ const ProjectCard = ({ project, index }) => {
   // Different entry animations for each card
   const getInitialAnimation = (idx) => {
     const animations = [
-      { opacity: 0, x: -100, y: 0 },      // From left
-      { opacity: 0, x: 0, y: -100 },      // From top
-      { opacity: 0, x: 100, y: 0 },       // From right
-      { opacity: 0, x: -100, y: 50 },     // From left-bottom
-      { opacity: 0, x: 0, y: 100 },       // From bottom
-      { opacity: 0, x: 100, y: 50 },      // From right-bottom
-      { opacity: 0, x: -80, y: -80 },     // From top-left
-      { opacity: 0, x: 80, y: -80 },      // From top-right
+      { opacity: 0, x: -60, y: 0 },       // From left
+      { opacity: 0, x: 0, y: -60 },       // From top
+      { opacity: 0, x: 60, y: 0 },        // From right
+      { opacity: 0, x: -60, y: 30 },      // From left-bottom
+      { opacity: 0, x: 0, y: 60 },        // From bottom
+      { opacity: 0, x: 60, y: 30 },       // From right-bottom
+      { opacity: 0, x: -50, y: -50 },     // From top-left
+      { opacity: 0, x: 50, y: -50 },      // From top-right
     ]
     return animations[idx % animations.length]
   }
@@ -80,13 +80,13 @@ const ProjectCard = ({ project, index }) => {
     <motion.div
       initial={getInitialAnimation(index)}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-30px" }}
       transition={{
-        delay: index * 0.15,
-        duration: 0.7,
+        delay: index * 0.08,
+        duration: 0.5,
         type: 'spring',
-        stiffness: 80,
-        damping: 15
+        stiffness: 120,
+        damping: 20
       }}
       className="group"
     >
