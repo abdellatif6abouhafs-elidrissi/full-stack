@@ -35,8 +35,8 @@ const XIcon = () => (
 )
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/abdellatif-elidrissi', label: 'GitHub', color: '#333' },
-  { icon: Linkedin, href: 'https://linkedin.com/in/abdellatif-elidrissi', label: 'LinkedIn', color: '#0A66C2' },
+  { icon: Github, href: 'https://github.com/abdellatif6abouhafs-elidrissi', label: 'GitHub', color: '#333' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/abdo-alle-757115363/', label: 'LinkedIn', color: '#0A66C2' },
   { icon: XIcon, href: 'https://x.com/abdellatif_dev', label: 'X', color: '#000', isCustom: true },
   { icon: Instagram, href: 'https://instagram.com/abdellatif_dev', label: 'Instagram', color: '#E4405F' },
   { icon: Facebook, href: 'https://facebook.com/abdellatif.dev', label: 'Facebook', color: '#1877F2' },
