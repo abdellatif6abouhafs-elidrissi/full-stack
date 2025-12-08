@@ -25,24 +25,29 @@ const timeline = [
     title: 'Baccalaureate in Physical Sciences',
     subtitle: 'High School Diploma',
     year: '2019',
+    certificate: null,
   },
   {
     icon: Award,
     title: 'Attestation from Najm Academy',
     subtitle: 'Full-Stack Web Development Training',
     year: '2023',
+    certificate: null,
   },
   {
     icon: Award,
     title: 'Kingston Business Academy',
     subtitle: 'The 7 Habits of the Happiest People - Certificate',
     year: '2025',
+    certificate: '/certificate.pdf',
+    hasCertificatePreview: true,
   },
   {
     icon: Code2,
     title: 'Full-Stack Developer',
     subtitle: 'Building Web Applications',
     year: 'Present',
+    certificate: null,
   },
 ]
 
@@ -239,19 +244,77 @@ const About = () => {
                     </motion.div>
 
                     {/* Content */}
-                    <motion.div
-                      className="glass rounded-2xl p-6 glass-hover"
-                      whileHover={{ x: 5 }}
-                    >
-                      <div className="flex items-center gap-2 text-primary text-sm font-medium mb-2">
-                        <Calendar className="w-4 h-4" />
-                        {item.year}
-                      </div>
-                      <h4 className="text-lg font-semibold text-white mb-1">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-400">{item.subtitle}</p>
-                    </motion.div>
+                    <div className={`relative ${item.hasCertificatePreview ? 'group' : ''}`}>
+                      <motion.div
+                        className="glass rounded-2xl p-6 glass-hover cursor-pointer"
+                        whileHover={{ x: 5 }}
+                      >
+                        <div className="flex items-center gap-2 text-primary text-sm font-medium mb-2">
+                          <Calendar className="w-4 h-4" />
+                          {item.year}
+                        </div>
+                        <h4 className="text-lg font-semibold text-white mb-1">
+                          {item.title}
+                        </h4>
+                        <p className="text-gray-400">{item.subtitle}</p>
+                        {item.hasCertificatePreview && (
+                          <p className="text-xs text-primary mt-2 opacity-70">Hover to view certificate</p>
+                        )}
+                      </motion.div>
+
+                      {/* Certificate Preview on Hover */}
+                      {item.hasCertificatePreview && (
+                        <div className="absolute left-0 bottom-full mb-4 w-[400px] md:w-[500px] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30">
+                          <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl shadow-[0_0_40px_rgba(56,189,248,0.5)] overflow-hidden border-4 border-double border-amber-600">
+                            <div className="p-4 text-center">
+                              {/* Header */}
+                              <div className="flex justify-center items-center gap-3 mb-3">
+                                <span className="text-2xl">🏆</span>
+                                <div>
+                                  <h3 className="text-amber-800 font-bold text-sm">KINGSTON BUSINESS ACADEMY</h3>
+                                  <p className="text-amber-600 text-xs">UK Education Quality Management</p>
+                                </div>
+                                <span className="text-2xl">🎓</span>
+                              </div>
+
+                              {/* Title */}
+                              <div className="border-y border-amber-400 py-2 mb-3">
+                                <h2 className="text-lg font-serif font-bold text-amber-900">
+                                  CERTIFICATE OF PARTICIPATION
+                                </h2>
+                              </div>
+
+                              {/* Recipient */}
+                              <p className="text-gray-600 text-xs mb-1">This is to certify that</p>
+                              <h3 className="text-lg font-bold text-gray-800 mb-2">
+                                ABDELLATIF ABOUHAFS ELIDRISSI
+                              </h3>
+
+                              {/* Course */}
+                              <p className="text-gray-600 text-xs">has successfully completed</p>
+                              <p className="text-sm font-semibold text-blue-600 mb-3">
+                                "The 7 Habits of the Happiest People"
+                              </p>
+
+                              {/* Footer */}
+                              <div className="flex justify-between items-center pt-2 border-t border-amber-300 text-xs">
+                                <div className="text-left text-gray-500">
+                                  <p>Future Leaders 978</p>
+                                  <p>Kingston Trainers Team</p>
+                                </div>
+                                <span className="text-xl">🇬🇧</span>
+                                <div className="text-right text-gray-500">
+                                  <p>Date</p>
+                                  <p className="font-semibold">25.08.2025</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Arrow */}
+                          <div className="absolute left-8 bottom-0 translate-y-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-amber-600"></div>
+                        </div>
+                      )}
+                    </div>
                   </motion.div>
                 ))}
               </div>
