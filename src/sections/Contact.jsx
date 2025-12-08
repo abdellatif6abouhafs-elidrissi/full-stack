@@ -6,24 +6,24 @@ import emailjs from '@emailjs/browser'
 const contactInfo = [
   {
     icon: Mail,
-    label: 'Email',
+    label: 'email.config',
     value: 'alleabdo301@gmail.com',
     href: 'mailto:alleabdo301@gmail.com',
-    color: '#EA4335',
+    color: '#22C55E',
   },
   {
     icon: Phone,
-    label: 'Phone',
+    label: 'phone.connect',
     value: '+212 625 034 547',
     href: 'tel:+212625034547',
-    color: '#34A853',
+    color: '#22C55E',
   },
   {
     icon: MapPin,
-    label: 'Location',
+    label: 'location.ping',
     value: 'Morocco',
     href: null,
-    color: '#4285F4',
+    color: '#22C55E',
   },
 ]
 
@@ -114,7 +114,7 @@ const Contact = () => {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* Section Title with Animation */}
+        {/* Section Title - Hacker Style */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,18 +126,18 @@ const Contact = () => {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-black border border-green-500/50 rounded-lg mb-6"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-gray-300">Available for work</span>
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            <span className="text-sm text-green-400 font-mono">[STATUS: AVAILABLE_FOR_HIRE]</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
-            Let's Build Something{' '}
-            <span className="gradient-text relative">
-              Amazing
+          <h2 className="text-4xl md:text-6xl font-mono font-bold mb-6 text-green-400">
+            <span className="text-green-600">$</span> initiate_
+            <span className="relative">
+              <span className="text-white">connection</span>
               <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-green-500 rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -145,9 +145,10 @@ const Contact = () => {
               />
             </span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Have a project in mind? Let's create something extraordinary together.
-            I'm just one message away.
+          <p className="text-green-500/70 max-w-2xl mx-auto text-lg font-mono">
+            <span className="text-green-400">&gt;</span> project.create() <span className="text-green-600">||</span> collaborate.start()
+            <br />
+            <span className="text-green-400">&gt;</span> <span className="text-gray-500">// Ready to execute your vision...</span>
           </p>
         </motion.div>
 
@@ -160,23 +161,18 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 space-y-8"
           >
-            {/* Big CTA Card */}
+            {/* Big CTA Card - Hacker Style */}
             <motion.div
-              className="relative glass rounded-3xl p-8 overflow-hidden group"
+              className="relative bg-black/90 border border-green-500/30 rounded-lg p-8 overflow-hidden group hover:border-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              {/* Animated Border */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden">
+              {/* Animated Scan Line */}
+              <div className="absolute inset-0 overflow-hidden">
                 <motion.div
-                  className="absolute inset-0"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(56,189,248,0.3), transparent)',
-                  }}
+                  className="absolute left-0 right-0 h-px bg-green-500/50"
                   animate={{
-                    x: ['-100%', '100%'],
+                    top: ['0%', '100%'],
                   }}
                   transition={{
                     duration: 3,
@@ -187,33 +183,39 @@ const Contact = () => {
               </div>
 
               <div className="relative z-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                  <span className="text-green-600 font-mono text-xs">SYSTEM_READY</span>
+                </div>
+
                 <motion.div
-                  className="w-16 h-16 bg-gradient-to-br from-primary to-purple-500 rounded-2xl flex items-center justify-center mb-6"
+                  className="w-14 h-14 bg-green-500/10 border border-green-500/50 rounded-lg flex items-center justify-center mb-6"
                   whileHover={{ rotate: 10 }}
                 >
-                  <Mail className="w-8 h-8 text-dark" />
+                  <Mail className="w-7 h-7 text-green-500" />
                 </motion.div>
 
-                <h3 className="text-2xl font-bold text-white mb-3">
-                  Ready to Start?
+                <h3 className="text-2xl font-mono font-bold text-green-400 mb-3">
+                  &gt;_ init_project()
                 </h3>
-                <p className="text-gray-400 mb-6 leading-relaxed">
-                  I'm currently available for freelance projects, full-time positions,
-                  and exciting collaborations. Let's turn your vision into reality.
+                <p className="text-green-600 mb-6 leading-relaxed font-mono text-sm">
+                  // Available for: freelance, full-time, collaboration
+                  <br />
+                  // Status: READY_TO_EXECUTE
                 </p>
 
                 <motion.a
                   href="mailto:alleabdo301@gmail.com"
-                  className="inline-flex items-center gap-2 text-primary font-semibold group/link"
+                  className="inline-flex items-center gap-2 text-green-400 font-mono font-semibold group/link border border-green-500/50 px-4 py-2 rounded hover:bg-green-500 hover:text-black transition-all duration-300"
                   whileHover={{ x: 5 }}
                 >
-                  Drop me an email
-                  <ArrowUpRight className="w-5 h-5 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+                  [RUN: send_email]
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
                 </motion.a>
               </div>
             </motion.div>
 
-            {/* Contact Info Cards */}
+            {/* Contact Info Cards - Hacker Style */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <motion.div
@@ -226,44 +228,31 @@ const Contact = () => {
                   {info.href ? (
                     <motion.a
                       href={info.href}
-                      className="flex items-center gap-4 p-4 glass rounded-2xl group cursor-pointer"
-                      whileHover={{ x: 10, scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
+                      className="flex items-center gap-4 p-4 bg-black/80 border border-green-500/30 rounded-lg group cursor-pointer hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] transition-all duration-300"
+                      whileHover={{ x: 10 }}
                     >
-                      <div
-                        className="w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                        style={{
-                          background: `linear-gradient(135deg, ${info.color}20, ${info.color}10)`,
-                          boxShadow: `0 0 20px ${info.color}20`,
-                        }}
-                      >
-                        <info.icon className="w-6 h-6" style={{ color: info.color }} />
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center group-hover:bg-green-500/20 transition-all duration-300">
+                        <info.icon className="w-5 h-5 text-green-500" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-gray-500 text-sm">{info.label}</p>
-                        <p className="text-white font-semibold group-hover:text-primary transition-colors">
+                        <p className="text-green-600 text-xs font-mono">{info.label}</p>
+                        <p className="text-green-400 font-mono group-hover:text-green-300 transition-colors">
                           {info.value}
                         </p>
                       </div>
-                      <ArrowUpRight className="w-5 h-5 text-gray-500 group-hover:text-primary transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      <span className="text-green-600 font-mono text-sm group-hover:text-green-400">[OPEN]</span>
                     </motion.a>
                   ) : (
                     <motion.div
-                      className="flex items-center gap-4 p-4 glass rounded-2xl"
+                      className="flex items-center gap-4 p-4 bg-black/80 border border-green-500/30 rounded-lg"
                       whileHover={{ x: 10 }}
                     >
-                      <div
-                        className="w-14 h-14 rounded-xl flex items-center justify-center"
-                        style={{
-                          background: `linear-gradient(135deg, ${info.color}20, ${info.color}10)`,
-                          boxShadow: `0 0 20px ${info.color}20`,
-                        }}
-                      >
-                        <info.icon className="w-6 h-6" style={{ color: info.color }} />
+                      <div className="w-12 h-12 bg-green-500/10 border border-green-500/30 rounded-lg flex items-center justify-center">
+                        <info.icon className="w-5 h-5 text-green-500" />
                       </div>
                       <div>
-                        <p className="text-gray-500 text-sm">{info.label}</p>
-                        <p className="text-white font-semibold">{info.value}</p>
+                        <p className="text-green-600 text-xs font-mono">{info.label}</p>
+                        <p className="text-green-400 font-mono">{info.value}</p>
                       </div>
                     </motion.div>
                   )}
@@ -271,7 +260,7 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
+            {/* Social Links - Hacker Style */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -279,7 +268,7 @@ const Contact = () => {
               transition={{ delay: 0.5 }}
               className="pt-6"
             >
-              <p className="text-gray-500 text-sm mb-4 text-center">Find me on</p>
+              <p className="text-green-600 text-sm mb-4 text-center font-mono">// social.links</p>
               <div className="flex gap-3 justify-center">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -287,29 +276,20 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-14 h-14 glass rounded-xl flex items-center justify-center group"
+                    className="w-12 h-12 bg-black border border-green-500/30 rounded-lg flex items-center justify-center group hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-300"
                     whileHover={{ y: -5, scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 + 0.6 }}
-                    style={{
-                      boxShadow: `0 0 0 rgba(56,189,248,0)`,
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 20px ${social.color}40`
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = `0 0 0 rgba(56,189,248,0)`
-                    }}
                   >
                     {social.isCustom ? (
-                      <span className="text-gray-400 group-hover:text-white transition-colors">
+                      <span className="text-green-600 group-hover:text-green-400 transition-colors">
                         <social.icon />
                       </span>
                     ) : (
-                      <social.icon className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+                      <social.icon className="w-5 h-5 text-green-600 group-hover:text-green-400 transition-colors" />
                     )}
                   </motion.a>
                 ))}
@@ -328,29 +308,33 @@ const Contact = () => {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="relative glass rounded-3xl p-8 md:p-10"
+              className="relative bg-black/90 border border-green-500/30 rounded-lg p-8 md:p-10 hover:border-green-500/50 transition-all duration-300"
             >
-              {/* Form Header */}
+              {/* Form Header - Hacker Style */}
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-white mb-2">Send a Message</h3>
-                <p className="text-gray-400">Fill out the form below and I'll get back to you as soon as possible.</p>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-green-500 font-mono text-lg">&gt;_</span>
+                  <h3 className="text-2xl font-mono font-bold text-green-400">message.compose()</h3>
+                </div>
+                <p className="text-green-600 font-mono text-sm">// Initialize connection protocol...</p>
               </div>
 
               <div className="space-y-6">
+                {/* Terminal Header */}
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  <span className="ml-4 text-green-400 font-mono text-sm">~/contact/send-message</span>
+                </div>
+
                 {/* Name & Email Row */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Name Input */}
-                  <div className="relative">
-                    <motion.label
-                      htmlFor="from_name"
-                      className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === 'from_name' || formData.from_name
-                          ? '-top-2.5 text-xs text-primary bg-dark-secondary px-2'
-                          : 'top-4 text-gray-500'
-                      }`}
-                    >
-                      Your Name
-                    </motion.label>
+                  {/* Name Input - Hacker Style */}
+                  <div className="relative group">
+                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-green-500 font-mono font-bold text-lg">
+                      &gt;_
+                    </div>
                     <input
                       type="text"
                       id="from_name"
@@ -360,28 +344,22 @@ const Contact = () => {
                       onFocus={() => setFocusedField('from_name')}
                       onBlur={() => setFocusedField(null)}
                       required
-                      className="w-full px-4 py-4 bg-dark-tertiary/50 border-2 border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 transition-all duration-300"
+                      placeholder="enter_name"
+                      className="w-full pl-12 pr-4 py-4 bg-black/80 border-2 border-green-500/30 rounded-lg font-mono text-green-400 placeholder:text-green-600/50 focus:outline-none focus:border-green-500 focus:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 caret-green-400"
                     />
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: focusedField === 'from_name' ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
                     />
                   </div>
 
-                  {/* Email Input */}
-                  <div className="relative">
-                    <motion.label
-                      htmlFor="from_email"
-                      className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                        focusedField === 'from_email' || formData.from_email
-                          ? '-top-2.5 text-xs text-primary bg-dark-secondary px-2'
-                          : 'top-4 text-gray-500'
-                      }`}
-                    >
-                      Your Email
-                    </motion.label>
+                  {/* Email Input - Hacker Style */}
+                  <div className="relative group">
+                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-green-500 font-mono font-bold text-lg">
+                      &gt;_
+                    </div>
                     <input
                       type="email"
                       id="from_email"
@@ -391,10 +369,11 @@ const Contact = () => {
                       onFocus={() => setFocusedField('from_email')}
                       onBlur={() => setFocusedField(null)}
                       required
-                      className="w-full px-4 py-4 bg-dark-tertiary/50 border-2 border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 transition-all duration-300"
+                      placeholder="enter_email"
+                      className="w-full pl-12 pr-4 py-4 bg-black/80 border-2 border-green-500/30 rounded-lg font-mono text-green-400 placeholder:text-green-600/50 focus:outline-none focus:border-green-500 focus:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 caret-green-400"
                     />
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: focusedField === 'from_email' ? 1 : 0 }}
                       transition={{ duration: 0.3 }}
@@ -402,18 +381,11 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Message Input */}
-                <div className="relative">
-                  <motion.label
-                    htmlFor="message"
-                    className={`absolute left-4 transition-all duration-300 pointer-events-none ${
-                      focusedField === 'message' || formData.message
-                        ? '-top-2.5 text-xs text-primary bg-dark-secondary px-2'
-                        : 'top-4 text-gray-500'
-                    }`}
-                  >
-                    Your Message
-                  </motion.label>
+                {/* Message Input - Hacker Style */}
+                <div className="relative group">
+                  <div className="absolute left-3 top-4 text-green-500 font-mono font-bold text-lg">
+                    &gt;_
+                  </div>
                   <textarea
                     id="message"
                     name="message"
@@ -423,10 +395,11 @@ const Contact = () => {
                     onBlur={() => setFocusedField(null)}
                     required
                     rows={6}
-                    className="w-full px-4 py-4 bg-dark-tertiary/50 border-2 border-white/10 rounded-xl text-white focus:outline-none focus:border-primary/50 transition-all duration-300 resize-none"
+                    placeholder="type_your_message..."
+                    className="w-full pl-12 pr-4 py-4 bg-black/80 border-2 border-green-500/30 rounded-lg font-mono text-green-400 placeholder:text-green-600/50 focus:outline-none focus:border-green-500 focus:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300 resize-none caret-green-400"
                   />
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-purple-500 rounded-full"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-green-500"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: focusedField === 'message' ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -453,32 +426,24 @@ const Contact = () => {
                   </motion.div>
                 )}
 
-                {/* Submit Button */}
+                {/* Submit Button - Hacker Style */}
                 <motion.button
                   type="submit"
                   disabled={isLoading}
-                  className="relative w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-primary-light text-dark font-bold rounded-xl overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="relative w-full flex items-center justify-center gap-3 px-8 py-4 bg-black border-2 border-green-500 text-green-400 font-mono font-bold rounded-lg overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed hover:bg-green-500 hover:text-black hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-300"
                   whileHover={{ scale: isLoading ? 1 : 1.02 }}
                   whileTap={{ scale: isLoading ? 1 : 0.98 }}
                 >
-                  {/* Animated Background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500 to-primary"
-                    initial={{ x: '100%' }}
-                    whileHover={{ x: 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
-
-                  <span className="relative z-10 flex items-center gap-3">
+                  <span className="flex items-center gap-3">
                     {isLoading ? (
                       <>
                         <Loader2 className="w-5 h-5 animate-spin" />
-                        Sending...
+                        [SENDING...]
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        [EXECUTE_SEND]
                       </>
                     )}
                   </span>

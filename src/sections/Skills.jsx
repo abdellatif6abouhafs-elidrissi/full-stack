@@ -45,9 +45,9 @@ const ProficiencyCards = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-2xl font-display font-semibold mb-12 text-center gradient-text"
+        className="text-2xl font-mono font-semibold mb-12 text-center text-green-400"
       >
-        Proficiency Level
+        &gt;_ proficiency_level
       </motion.h3>
 
       <motion.div
@@ -75,7 +75,7 @@ const ProficiencyCards = () => {
             style={{ transformStyle: 'preserve-3d' }}
           >
             <div
-              className="relative glass rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-[0_20px_50px_rgba(56,189,248,0.3)]"
+              className="relative bg-black/80 border border-green-500/30 rounded-2xl p-6 text-center transition-all duration-300 hover:border-green-500 hover:shadow-[0_20px_50px_rgba(34,197,94,0.3)]"
               style={{
                 transformStyle: 'preserve-3d',
                 background: `linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95))`,
@@ -184,7 +184,7 @@ const Skills = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            My <span className="gradient-text">Skills</span>
+            <span className="text-green-500 font-mono">$</span> My <span className="text-green-400">Skills</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
@@ -240,7 +240,7 @@ const Skills = () => {
             })}
 
             {/* Center glow effect */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-primary/30 blur-3xl" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 rounded-full bg-green-500/30 blur-3xl" />
           </motion.div>
         </div>
       </div>
@@ -256,8 +256,8 @@ const Skills = () => {
           viewport={{ once: true }}
           className="mt-20"
         >
-          <h3 className="text-2xl font-display font-semibold mb-8 text-center gradient-text">
-            Other Tools & Technologies
+          <h3 className="text-2xl font-mono font-semibold mb-8 text-center text-green-400">
+            &gt;_ other_tools
           </h3>
         </motion.div>
       </div>
@@ -298,7 +298,7 @@ const Skills = () => {
               ].map((tool) => (
                 <div
                   key={`${setIndex}-${tool.name}`}
-                  className="group flex items-center gap-3 px-6 py-4 glass rounded-xl text-gray-300 font-medium hover:border-primary/30 transition-all duration-300 cursor-default shrink-0"
+                  className="group flex items-center gap-3 px-6 py-4 bg-black/80 border border-green-500/30 rounded-xl text-gray-300 font-mono font-medium hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-300 cursor-default shrink-0"
                   style={{
                     borderColor: 'transparent',
                     boxShadow: `0 0 15px ${tool.color}20`,

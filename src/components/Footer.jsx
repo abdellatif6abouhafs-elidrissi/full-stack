@@ -9,17 +9,18 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-white/10">
+    <footer className="py-12 border-t border-green-500/20 bg-black/50">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
           <motion.a
             href="#home"
-            className="text-xl font-display font-bold"
+            className="text-xl font-mono font-bold"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="gradient-text">Full-Stack</span>
-            <span className="text-white">&lt;EL&gt;</span>
+            <span className="text-green-400">&gt;_</span>
+            <span className="text-white ml-1">elidrissi</span>
+            <span className="text-green-500">.dev</span>
           </motion.a>
 
           {/* Social Links */}
@@ -30,34 +31,34 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 glass rounded-full hover:bg-primary/20 transition-colors duration-300"
+                className="p-3 bg-black border border-green-500/30 rounded-lg hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-300"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <social.icon className="w-5 h-5 text-gray-400 hover:text-primary transition-colors" />
+                <social.icon className="w-5 h-5 text-green-400" />
               </motion.a>
             ))}
           </div>
 
           {/* Copyright */}
           <motion.p
-            className="text-gray-400 text-sm flex items-center gap-1"
+            className="text-gray-400 text-sm flex items-center gap-1 font-mono"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
           >
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Abdellatif
+            <span className="text-green-500">&gt;_</span> coded_with <Heart className="w-4 h-4 text-green-500 fill-green-500" /> by <span className="text-green-400">Abdellatif</span>
           </motion.p>
         </div>
 
         <motion.p
-          className="text-center text-gray-500 text-sm mt-8"
+          className="text-center text-green-500/50 text-sm mt-8 font-mono"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
-          &copy; {new Date().getFullYear()} Abdellatif Abouhafss Elidrissi. All rights reserved.
+          &copy; {new Date().getFullYear()} <span className="text-green-400">Abdellatif Abouhafss Elidrissi</span>. All rights reserved.
         </motion.p>
       </div>
     </footer>

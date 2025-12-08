@@ -36,7 +36,7 @@ const TypeWriter = ({ words, className }) => {
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: 'reverse' }}
-        className="inline-block w-[3px] h-[1em] bg-primary ml-1 align-middle"
+        className="inline-block w-[3px] h-[1em] bg-green-400 ml-1 align-middle"
       />
     </span>
   )
@@ -224,7 +224,7 @@ const Particles = () => {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-primary/30 rounded-full"
+          className="absolute w-2 h-2 bg-green-500/30 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -266,7 +266,7 @@ const Hero = () => {
       <div className="absolute inset-0 -z-10">
         {/* Gradient Orbs */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"
           animate={{
             x: [0, 50, 0],
             y: [0, 30, 0],
@@ -279,7 +279,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-green-400/15 rounded-full blur-3xl"
           animate={{
             x: [0, -30, 0],
             y: [0, 50, 0],
@@ -292,7 +292,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"
           animate={{
             x: [0, 40, -40, 0],
             y: [0, -40, 40, 0],
@@ -332,7 +332,7 @@ const Hero = () => {
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <Code2 className="w-10 h-10 text-primary" />
+            <Code2 className="w-10 h-10 text-green-400" />
           </motion.div>
         </motion.div>
 
@@ -344,7 +344,7 @@ const Hero = () => {
           className="mb-6"
         >
           <motion.span
-            className="inline-block px-6 py-3 glass rounded-full text-sm font-medium text-primary"
+            className="inline-block px-6 py-3 bg-black/80 border border-green-500/50 rounded-full text-sm font-mono font-medium text-green-400"
             whileHover={{ scale: 1.05 }}
           >
             <motion.span
@@ -352,18 +352,19 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              Welcome to my portfolio
+&gt;_ Welcome to my portfolio
             </motion.span>
           </motion.span>
         </motion.div>
 
         {/* Name with typewriter animation */}
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-mono font-bold mb-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
+          <span className="text-green-500">&gt;_</span>{' '}
           {fullNameLetters.map((letter, index) => (
             <motion.span
               key={index}
@@ -373,7 +374,7 @@ const Hero = () => {
                 duration: 0.05,
                 delay: 0.5 + index * 0.08,
               }}
-              className={letter.isName ? 'gradient-text' : 'text-white'}
+              className={letter.isName ? 'text-green-400' : 'text-white'}
             >
               {letter.char}
             </motion.span>
@@ -384,7 +385,7 @@ const Hero = () => {
             transition={{
               opacity: { duration: 0.5, repeat: Infinity, repeatType: 'reverse', delay: 2 }
             }}
-            className="inline-block w-[4px] h-[0.9em] bg-primary ml-1 align-middle"
+            className="inline-block w-[4px] h-[0.9em] bg-green-400 ml-1 align-middle"
           />
         </motion.h1>
 
@@ -393,10 +394,10 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="text-xl sm:text-2xl md:text-3xl text-gray-400 font-medium mb-8 h-[40px] flex items-center justify-center"
+          className="text-xl sm:text-2xl md:text-3xl text-gray-400 font-mono font-medium mb-8 h-[40px] flex items-center justify-center"
         >
           <span className="mr-2">I'm a</span>
-          <TypeWriter words={roles} className="text-primary font-semibold" />
+          <TypeWriter words={roles} className="text-green-400 font-semibold" />
         </motion.h2>
 
         {/* Description with fade in */}
@@ -404,9 +405,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed"
+          className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-mono text-center"
         >
-          I build modern, scalable, and high-performance web applications using
+I build modern, scalable, and high-performance web applications using
           React.js, Node.js, and MongoDB. Passionate about creating clean code
           and exceptional user experiences.
         </motion.p>
@@ -428,10 +429,10 @@ const Hero = () => {
               className="text-center"
               whileHover={{ scale: 1.1 }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-primary">
+              <div className="text-3xl md:text-4xl font-bold text-green-400 font-mono">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-gray-400 text-sm">{stat.label}</div>
+              <div className="text-gray-400 text-sm font-mono">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -446,22 +447,22 @@ const Hero = () => {
           <motion.a
             href="/cv.pdf"
             download
-            className="group flex items-center gap-2 px-8 py-4 bg-primary text-dark font-semibold rounded-full hover:bg-primary-light transition-all duration-300 glow-box-hover"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}
+            className="group flex items-center gap-2 px-8 py-4 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all duration-300 border-2 border-green-400"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34, 197, 94, 0.5)' }}
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-5 h-5 group-hover:animate-bounce" />
-            Download CV
+            [DOWNLOAD_CV]
           </motion.a>
 
           <motion.a
             href="#contact"
-            className="group flex items-center gap-2 px-8 py-4 glass glass-hover rounded-full font-semibold"
-            whileHover={{ scale: 1.05 }}
+            className="group flex items-center gap-2 px-8 py-4 bg-black border-2 border-cyan-500 text-cyan-400 font-mono font-bold rounded-lg hover:bg-cyan-500 hover:text-black transition-all duration-300"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(6, 182, 212, 0.5)' }}
             whileTap={{ scale: 0.95 }}
           >
             <Mail className="w-5 h-5" />
-            Contact Me
+            [CONTACT_ME]
           </motion.a>
         </motion.div>
 
@@ -489,8 +490,8 @@ const Hero = () => {
         }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-gray-500 text-sm">Scroll Down</span>
-          <ChevronDown className="w-6 h-6 text-primary" />
+          <span className="text-green-500/50 text-sm font-mono">&gt;_ scroll_down</span>
+          <ChevronDown className="w-6 h-6 text-green-400" />
         </div>
       </motion.div>
     </section>

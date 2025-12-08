@@ -91,10 +91,20 @@ const ProjectCard = ({ project, index }) => {
       className="group"
     >
       <motion.div
-        className="glass rounded-3xl overflow-hidden glow-box-hover h-full flex flex-col"
+        className="bg-black/90 border-2 border-green-500/30 rounded-2xl overflow-hidden h-full flex flex-col hover:border-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] transition-all duration-300"
         whileHover={{ y: -10 }}
         transition={{ duration: 0.3 }}
       >
+        {/* Terminal Header */}
+        <div className="bg-gray-900 px-4 py-2 flex items-center gap-2 border-b border-green-500/20">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+          <span className="text-green-500 text-xs font-mono ml-2">~/projects/{project.title.toLowerCase().replace(/\s+/g, '-')}</span>
+        </div>
+
         {/* Image */}
         <div className="relative overflow-hidden">
           <motion.img
@@ -104,7 +114,7 @@ const ProjectCard = ({ project, index }) => {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-secondary via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
           {/* Overlay Icons */}
           <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -112,21 +122,21 @@ const ProjectCard = ({ project, index }) => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-dark/80 rounded-full hover:bg-primary transition-colors"
+              className="p-2 bg-black/90 border border-green-500 rounded-full hover:bg-green-500 hover:text-black transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <Github className="w-5 h-5" />
+              <Github className="w-5 h-5 text-green-400 group-hover:text-black" />
             </motion.a>
             <motion.a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 bg-dark/80 rounded-full hover:bg-primary transition-colors"
+              className="p-2 bg-black/90 border border-cyan-500 rounded-full hover:bg-cyan-500 hover:text-black transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ExternalLink className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5 text-cyan-400" />
             </motion.a>
           </div>
         </div>
@@ -134,13 +144,13 @@ const ProjectCard = ({ project, index }) => {
         {/* Content */}
         <div className="p-6 flex-1 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
-            <Folder className="w-5 h-5 text-primary" />
-            <h3 className="text-xl font-semibold text-white group-hover:text-primary transition-colors">
+            <Folder className="w-5 h-5 text-green-500" />
+            <h3 className="text-xl font-mono font-bold text-green-400 group-hover:text-green-300 transition-colors">
               {project.title}
             </h3>
           </div>
 
-          <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1">
+          <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 font-mono">
             {project.description}
           </p>
 
@@ -149,25 +159,53 @@ const ProjectCard = ({ project, index }) => {
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
+                className="px-3 py-1 text-xs font-mono font-medium bg-green-500/10 text-green-400 border border-green-500/30 rounded-md"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* View Project Button */}
-          <motion.a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full px-6 py-3 bg-primary text-dark font-semibold rounded-xl hover:bg-primary-light transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <ExternalLink className="w-4 h-4" />
-            View Project
-          </motion.a>
+          {/* Action Buttons - Hacker Style */}
+          <div className="flex gap-3">
+            {/* Live Demo Button */}
+            <motion.a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 relative overflow-hidden group/btn"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="relative px-4 py-3 bg-black border-2 border-green-500 rounded-lg font-mono text-green-400 text-center transition-all duration-300 group-hover/btn:bg-green-500 group-hover/btn:text-black group-hover/btn:shadow-[0_0_25px_rgba(34,197,94,0.5)]">
+                <span className="relative z-10 flex items-center justify-center gap-2 text-sm font-bold">
+                  <ExternalLink className="w-4 h-4" />
+                  [LAUNCH]
+                </span>
+                {/* Glitch effect on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-green-400/20"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.5 }}
+                />
+              </div>
+            </motion.a>
+
+            {/* GitHub Button */}
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative overflow-hidden group/btn"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="px-4 py-3 bg-black border-2 border-cyan-500 rounded-lg font-mono text-cyan-400 transition-all duration-300 group-hover/btn:bg-cyan-500 group-hover/btn:text-black group-hover/btn:shadow-[0_0_25px_rgba(6,182,212,0.5)]">
+                <Github className="w-5 h-5" />
+              </div>
+            </motion.a>
+          </div>
         </div>
       </motion.div>
     </motion.div>
@@ -186,7 +224,7 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+            <span className="text-green-500 font-mono">$</span> Featured <span className="text-green-400">Projects</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and experience
@@ -211,12 +249,12 @@ const Projects = () => {
             href="https://github.com/abdellatif6abouhafs-elidrissi"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 glass glass-hover rounded-full font-semibold"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-black border-2 border-green-500 rounded-lg font-mono font-bold text-green-400 hover:bg-green-500 hover:text-black hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Github className="w-5 h-5" />
-            View More on GitHub
+            [VIEW_MORE_ON_GITHUB]
           </motion.a>
         </motion.div>
       </div>
