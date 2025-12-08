@@ -129,20 +129,24 @@ const About = () => {
                   contributing to open-source projects, and continuously expanding my skill set.
                 </p>
 
-                {/* Floating Tech Logos - appear on hover over text */}
+                {/* Floating Tech Logos - half above, half below text */}
                 {techLogos.map((tech, index) => {
-                  // Scatter logos above the text
-                  const positions = [
-                    { x: 10, y: -50 },
-                    { x: 80, y: -70 },
-                    { x: 160, y: -45 },
-                    { x: 240, y: -65 },
-                    { x: 320, y: -50 },
-                    { x: 390, y: -70 },
-                    { x: 120, y: -90 },
-                    { x: 280, y: -85 },
+                  // First 4 logos on top, last 4 on bottom
+                  const topPositions = [
+                    { x: 20, y: -55 },
+                    { x: 120, y: -70 },
+                    { x: 230, y: -50 },
+                    { x: 340, y: -65 },
                   ]
-                  const pos = positions[index]
+                  const bottomPositions = [
+                    { x: 20, y: 'calc(100% + 15px)' },
+                    { x: 120, y: 'calc(100% + 30px)' },
+                    { x: 230, y: 'calc(100% + 10px)' },
+                    { x: 340, y: 'calc(100% + 25px)' },
+                  ]
+
+                  const isTop = index < 4
+                  const pos = isTop ? topPositions[index] : bottomPositions[index - 4]
 
                   return (
                     <div
@@ -155,7 +159,7 @@ const About = () => {
                         top: pos.y,
                         boxShadow: `0 0 20px ${tech.color}60`,
                         opacity: 0,
-                        transform: 'translateY(20px) scale(0.5)',
+                        transform: isTop ? 'translateY(20px) scale(0.5)' : 'translateY(-20px) scale(0.5)',
                         transition: `all 0.3s ease ${index * 0.05}s`,
                       }}
                       title={tech.name}
