@@ -29,8 +29,14 @@ const timeline = [
   {
     icon: Award,
     title: 'Attestation from Najm Academy',
-    subtitle: 'Full-Stack Web Development',
+    subtitle: 'Full-Stack Web Development Training',
     year: '2023',
+  },
+  {
+    icon: Award,
+    title: 'Kingston Business Academy',
+    subtitle: 'The 7 Habits of the Happiest People - Certificate',
+    year: '2025',
   },
   {
     icon: Code2,
