@@ -9,14 +9,14 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#38BDF8',
-          light: '#7DD3FC',
-          dark: '#0EA5E9',
+          DEFAULT: '#22C55E',
+          light: '#4ADE80',
+          dark: '#16A34A',
         },
         dark: {
-          DEFAULT: '#0F172A',
-          secondary: '#1E293B',
-          tertiary: '#334155',
+          DEFAULT: '#000000',
+          secondary: '#0a0a0a',
+          tertiary: '#111111',
         },
       },
       fontFamily: {
@@ -34,8 +34,8 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 20px rgba(56, 189, 248, 0.3)' },
-          '100%': { boxShadow: '0 0 40px rgba(56, 189, 248, 0.6)' },
+          '0%': { boxShadow: '0 0 20px rgba(34, 197, 94, 0.3)' },
+          '100%': { boxShadow: '0 0 40px rgba(34, 197, 94, 0.6)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },

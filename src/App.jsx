@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className={`min-h-screen overflow-x-hidden transition-colors duration-300 ${
-      isDark ? 'bg-dark text-white' : 'bg-gray-100 text-gray-900'
+      isDark ? 'bg-black text-gray-200' : 'bg-gray-100 text-gray-900'
     }`}>
       <Navbar isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <main>

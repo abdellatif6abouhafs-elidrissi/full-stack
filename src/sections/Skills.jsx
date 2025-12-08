@@ -265,9 +265,9 @@ const Skills = () => {
       {/* Marquee Container - Full Width */}
       <div className="relative overflow-hidden py-4">
         {/* Gradient Fade Left */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-dark to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
         {/* Gradient Fade Right */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-dark to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
 
         <motion.div
           className="flex gap-6"
@@ -287,27 +287,23 @@ const Skills = () => {
           {[...Array(2)].map((_, setIndex) => (
             <div key={setIndex} className="flex gap-6 shrink-0">
               {[
-                { name: 'VS Code', icon: '💻', color: '#007ACC' },
-                { name: 'Postman', icon: '🚀', color: '#FF6C37' },
-                { name: 'Figma', icon: '🎨', color: '#F24E1E' },
-                { name: 'npm', icon: '📦', color: '#CB3837' },
-                { name: 'Vercel', icon: '▲', color: '#000000' },
-                { name: 'Netlify', icon: '🌐', color: '#00C7B7' },
-                { name: 'Linux', icon: '🐧', color: '#FCC624' },
-                { name: 'Docker', icon: '🐳', color: '#2496ED' },
+                { name: 'VS Code', icon: '💻', color: '#22C55E' },
+                { name: 'Postman', icon: '🚀', color: '#22C55E' },
+                { name: 'Figma', icon: '🎨', color: '#22C55E' },
+                { name: 'npm', icon: '📦', color: '#22C55E' },
+                { name: 'Vercel', icon: '▲', color: '#22C55E' },
+                { name: 'Netlify', icon: '🌐', color: '#22C55E' },
+                { name: 'Linux', icon: '🐧', color: '#22C55E' },
+                { name: 'Docker', icon: '🐳', color: '#22C55E' },
               ].map((tool) => (
                 <div
                   key={`${setIndex}-${tool.name}`}
-                  className="group flex items-center gap-3 px-6 py-4 bg-black/80 border border-green-500/30 rounded-xl text-gray-300 font-mono font-medium hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all duration-300 cursor-default shrink-0"
-                  style={{
-                    borderColor: 'transparent',
-                    boxShadow: `0 0 15px ${tool.color}20`,
-                  }}
+                  className="group flex items-center gap-3 px-6 py-4 bg-black border-2 border-green-500/50 rounded-xl text-gray-300 font-mono font-medium hover:border-green-500 hover:shadow-[0_0_25px_rgba(34,197,94,0.5)] hover:bg-green-500/10 transition-all duration-300 cursor-default shrink-0"
                 >
                   <span className="text-3xl group-hover:scale-125 transition-transform duration-300">
                     {tool.icon}
                   </span>
-                  <span className="group-hover:text-white transition-colors text-lg">
+                  <span className="group-hover:text-green-400 transition-colors text-lg">
                     {tool.name}
                   </span>
                 </div>
