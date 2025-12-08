@@ -72,27 +72,27 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Profile Image */}
+        {/* Profile Image - Centered at top */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-12"
+        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center"
+            className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
           >
-            <motion.div
-              className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src="/profile.jpg"
-                alt="Abdellatif Abouhafss Elidrissi"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <img
+              src="/profile.jpg"
+              alt="Abdellatif Abouhafss Elidrissi"
+              className="w-full h-full object-cover"
+            />
           </motion.div>
+        </motion.div>
 
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Bio Card with Floating Tech Logos on Text Hover */}
           <motion.div
             variants={containerVariants}
