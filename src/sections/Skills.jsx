@@ -252,7 +252,7 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* Tools Section */}
+        {/* Tools Section with Logos */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -263,18 +263,40 @@ const Skills = () => {
             Other Tools & Technologies
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['VS Code', 'Postman', 'Figma', 'npm', 'Vercel', 'Netlify', 'Linux', 'Docker'].map(
-              (tool, index) => (
-                <motion.span
-                  key={tool}
+            {[
+              { name: 'VS Code', icon: '💻', color: '#007ACC' },
+              { name: 'Postman', icon: '🚀', color: '#FF6C37' },
+              { name: 'Figma', icon: '🎨', color: '#F24E1E' },
+              { name: 'npm', icon: '📦', color: '#CB3837' },
+              { name: 'Vercel', icon: '▲', color: '#000000' },
+              { name: 'Netlify', icon: '🌐', color: '#00C7B7' },
+              { name: 'Linux', icon: '🐧', color: '#FCC624' },
+              { name: 'Docker', icon: '🐳', color: '#2496ED' },
+            ].map((tool, index) => (
+                <motion.div
+                  key={tool.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.05 }}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  className="px-6 py-3 glass rounded-full text-gray-300 font-medium hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-default"
+                  whileHover={{
+                    scale: 1.1,
+                    y: -5,
+                    boxShadow: `0 10px 30px ${tool.color}40`
+                  }}
+                  className="group flex items-center gap-3 px-5 py-3 glass rounded-xl text-gray-300 font-medium hover:border-primary/30 transition-all duration-300 cursor-default"
+                  style={{
+                    borderColor: 'transparent',
+                  }}
                 >
-                  {tool}
-                </motion.span>
+                  <span
+                    className="text-2xl group-hover:scale-125 transition-transform duration-300"
+                  >
+                    {tool.icon}
+                  </span>
+                  <span className="group-hover:text-white transition-colors">
+                    {tool.name}
+                  </span>
+                </motion.div>
               )
             )}
           </div>
