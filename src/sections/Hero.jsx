@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
-import { Download, Mail, ChevronDown, Github, Linkedin, Code2 } from 'lucide-react'
+import { Download, Mail, ChevronDown, Code2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 // Typewriter effect component
@@ -58,6 +58,148 @@ const AnimatedCounter = ({ value, suffix = '' }) => {
   }, [value, count, rounded])
 
   return <span>{displayValue}{suffix}</span>
+}
+
+// Hacker Terminal Component
+const HackerTerminal = () => {
+  const [line1, setLine1] = useState('')
+  const [line2, setLine2] = useState('')
+  const [line3, setLine3] = useState('')
+  const [line4, setLine4] = useState('')
+  const [showFinalCursor, setShowFinalCursor] = useState(false)
+
+  const text1 = './whoami.sh'
+  const text2 = '[+] Scanning developer profile...'
+  const text3 = '[+] Access granted... Loading skills...'
+  const text4 = "> I'm simply the best Full-Stack Developer <"
+
+  useEffect(() => {
+    let timeout1, timeout2, timeout3, timeout4, timeout5
+
+    // Start typing line 1 after 500ms
+    timeout1 = setTimeout(() => {
+      let i = 0
+      const interval1 = setInterval(() => {
+        if (i <= text1.length) {
+          setLine1(text1.slice(0, i))
+          i++
+        } else {
+          clearInterval(interval1)
+        }
+      }, 80)
+    }, 500)
+
+    // Start typing line 2 after 2s
+    timeout2 = setTimeout(() => {
+      let i = 0
+      const interval2 = setInterval(() => {
+        if (i <= text2.length) {
+          setLine2(text2.slice(0, i))
+          i++
+        } else {
+          clearInterval(interval2)
+        }
+      }, 30)
+    }, 2000)
+
+    // Start typing line 3 after 4s
+    timeout3 = setTimeout(() => {
+      let i = 0
+      const interval3 = setInterval(() => {
+        if (i <= text3.length) {
+          setLine3(text3.slice(0, i))
+          i++
+        } else {
+          clearInterval(interval3)
+        }
+      }, 30)
+    }, 4000)
+
+    // Start typing line 4 after 6s
+    timeout4 = setTimeout(() => {
+      let i = 0
+      const interval4 = setInterval(() => {
+        if (i <= text4.length) {
+          setLine4(text4.slice(0, i))
+          i++
+        } else {
+          clearInterval(interval4)
+        }
+      }, 50)
+    }, 6000)
+
+    // Show final cursor after 10s
+    timeout5 = setTimeout(() => {
+      setShowFinalCursor(true)
+    }, 10000)
+
+    return () => {
+      clearTimeout(timeout1)
+      clearTimeout(timeout2)
+      clearTimeout(timeout3)
+      clearTimeout(timeout4)
+      clearTimeout(timeout5)
+    }
+  }, [])
+
+  return (
+    <div className="bg-black/90 border-2 border-green-500/50 rounded-xl overflow-hidden shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+      {/* Terminal Header */}
+      <div className="flex items-center justify-between px-4 py-3 bg-black border-b border-green-500/30">
+        <div className="flex items-center gap-2">
+          <div className="w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
+          <div className="w-3 h-3 rounded-full bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)]"></div>
+          <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+        </div>
+        <span className="text-green-400 text-sm font-mono tracking-wider">root@abdellatif:~</span>
+        <div className="w-16"></div>
+      </div>
+
+      {/* Terminal Body */}
+      <div className="p-6 font-mono text-base md:text-lg min-h-[220px]">
+        {/* Line 1 - command */}
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-green-400">root@abdellatif:~$</span>
+          <span className="text-white">{line1}</span>
+          {line1.length > 0 && line1.length < text1.length && (
+            <span className="inline-block w-2 h-5 bg-green-400 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
+          )}
+        </div>
+
+        {/* Line 2 - scanning */}
+        {line2.length > 0 && (
+          <div className="mb-2 text-green-300 text-sm">
+            {line2}
+          </div>
+        )}
+
+        {/* Line 3 - access granted */}
+        {line3.length > 0 && (
+          <div className="mb-3 text-yellow-400 text-sm">
+            {line3}
+          </div>
+        )}
+
+        {/* Line 4 - the best */}
+        {line4.length > 0 && (
+          <div className="text-green-400 text-xl md:text-2xl font-bold mb-4">
+            {line4}
+            {line4.length < text4.length && (
+              <span className="inline-block w-3 h-6 bg-green-400 animate-pulse ml-1 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></span>
+            )}
+          </div>
+        )}
+
+        {/* Final prompt */}
+        {showFinalCursor && (
+          <div className="flex items-center gap-2 text-green-400">
+            root@abdellatif:~$
+            <span className="inline-block w-3 h-6 bg-green-400 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.8)]"></span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }
 
 // Floating particles
@@ -308,35 +450,16 @@ const Hero = () => {
           </motion.a>
         </motion.div>
 
-        {/* Social Links */}
+        {/* Hacker Terminal Box */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.1 }}
-          className="flex items-center justify-center gap-4"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2.1, duration: 0.5 }}
+          className="max-w-2xl mx-auto mt-8"
         >
-          <motion.a
-            href="https://github.com/abdellatif6abouhafs-elidrissi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-full hover:bg-primary/20 transition-colors"
-            whileHover={{ scale: 1.2, y: -5, rotate: 360 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Github className="w-6 h-6" />
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 glass rounded-full hover:bg-primary/20 transition-colors"
-            whileHover={{ scale: 1.2, y: -5, rotate: 360 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Linkedin className="w-6 h-6" />
-          </motion.a>
+          <HackerTerminal />
+          {/* Glowing effect underneath */}
+          <div className="h-4 bg-gradient-to-b from-green-500/20 to-transparent blur-xl"></div>
         </motion.div>
       </div>
 
