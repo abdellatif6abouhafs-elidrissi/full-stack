@@ -7,14 +7,16 @@ const skills = [
   'MongoDB', 'Tailwind CSS', 'REST APIs', 'Git'
 ]
 
-// Tech logos with SVG icons
+// Tech logos matching the skills below
 const techLogos = [
   { name: 'JavaScript', color: '#F7DF1E', icon: 'JS' },
-  { name: 'React', color: '#61DAFB', icon: '⚛️' },
+  { name: 'React.js', color: '#61DAFB', icon: '⚛️' },
   { name: 'Node.js', color: '#339933', icon: 'N' },
+  { name: 'Express', color: '#000000', icon: 'Ex' },
   { name: 'MongoDB', color: '#47A248', icon: 'M' },
+  { name: 'Tailwind', color: '#06B6D4', icon: 'TW' },
+  { name: 'REST APIs', color: '#FF6B6B', icon: 'API' },
   { name: 'Git', color: '#F05032', icon: 'G' },
-  { name: 'TypeScript', color: '#3178C6', icon: 'TS' },
 ]
 
 const timeline = [
@@ -70,90 +72,77 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Profile Image with Floating Tech Logos */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-16"
-        >
-          <div className="relative group">
-            {/* Main Image Container */}
-            <motion.div
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Profile Image */}
-              <img
-                src="/profile.jpg"
-                alt="Abdellatif Abouhafss Elidrissi"
-                className="w-full h-full object-cover"
-              />
-
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
-
-            {/* Floating Tech Logos - appear on hover */}
-            {techLogos.map((tech, index) => {
-              const angle = (index * 60) - 60 // Distribute around the circle
-              const radius = 160 // Distance from center
-              const x = Math.cos((angle * Math.PI) / 180) * radius
-              const y = Math.sin((angle * Math.PI) / 180) * radius
-
-              return (
-                <motion.div
-                  key={tech.name}
-                  className="absolute w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-sm md:text-base font-bold shadow-lg cursor-pointer opacity-0 group-hover:opacity-100"
-                  style={{
-                    backgroundColor: tech.color,
-                    color: tech.name === 'JavaScript' || tech.name === 'TypeScript' ? '#000' : '#fff',
-                    left: '50%',
-                    top: '50%',
-                    boxShadow: `0 0 20px ${tech.color}50`,
-                  }}
-                  initial={{ x: 0, y: 0, scale: 0 }}
-                  whileHover={{ scale: 1.2 }}
-                  animate={{
-                    x: x - 24,
-                    y: y - 24,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    type: 'spring',
-                    stiffness: 200
-                  }}
-                  title={tech.name}
-                >
-                  {tech.icon}
-                </motion.div>
-              )
-            })}
-
-            {/* Glowing ring animation */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-primary/50 opacity-0 group-hover:opacity-100"
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.5, 0.2, 0.5]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              style={{
-                width: '100%',
-                height: '100%',
-                boxShadow: '0 0 30px rgba(56, 189, 248, 0.5)'
-              }}
-            />
-          </div>
-        </motion.div>
-
         <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Profile Image with Floating Tech Logos */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex justify-center lg:justify-end"
+          >
+            <div className="relative group">
+              {/* Main Image Container */}
+              <motion.div
+                className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Profile Image */}
+                <img
+                  src="/profile.jpg"
+                  alt="Abdellatif Abouhafss Elidrissi"
+                  className="w-full h-full object-cover"
+                />
+
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+
+              {/* Floating Tech Logos - appear on hover */}
+              {techLogos.map((tech, index) => {
+                const angle = (index * 45) - 90 // Distribute around the image
+                const radius = 180 // Distance from center
+                const x = Math.cos((angle * Math.PI) / 180) * radius
+                const y = Math.sin((angle * Math.PI) / 180) * radius
+
+                return (
+                  <motion.div
+                    key={tech.name}
+                    className="absolute w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-xs md:text-sm font-bold shadow-lg cursor-pointer opacity-0 group-hover:opacity-100 border-2 border-white/20"
+                    style={{
+                      backgroundColor: tech.color,
+                      color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
+                      left: '50%',
+                      top: '50%',
+                      boxShadow: `0 0 25px ${tech.color}80`,
+                    }}
+                    initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1.3, zIndex: 10 }}
+                    animate={{
+                      x: x - 24,
+                      y: y - 24,
+                      scale: 1,
+                      opacity: 1,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.08,
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 15
+                    }}
+                    title={tech.name}
+                  >
+                    {tech.icon}
+                  </motion.div>
+                )
+              })}
+
+              {/* Glowing effect */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+            </div>
+          </motion.div>
+
           {/* Bio Card */}
           <motion.div
             variants={containerVariants}
