@@ -73,77 +73,7 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Profile Image with Floating Tech Logos */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative group">
-              {/* Main Image Container */}
-              <motion.div
-                className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Profile Image */}
-                <img
-                  src="/profile.jpg"
-                  alt="Abdellatif Abouhafss Elidrissi"
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-
-              {/* Floating Tech Logos - appear on hover */}
-              {techLogos.map((tech, index) => {
-                const angle = (index * 45) - 90 // Distribute around the image
-                const radius = 180 // Distance from center
-                const x = Math.cos((angle * Math.PI) / 180) * radius
-                const y = Math.sin((angle * Math.PI) / 180) * radius
-
-                return (
-                  <motion.div
-                    key={tech.name}
-                    className="absolute w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-xs md:text-sm font-bold shadow-lg cursor-pointer opacity-0 group-hover:opacity-100 border-2 border-white/20"
-                    style={{
-                      backgroundColor: tech.color,
-                      color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
-                      left: '50%',
-                      top: '50%',
-                      boxShadow: `0 0 25px ${tech.color}80`,
-                    }}
-                    initial={{ x: 0, y: 0, scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.3, zIndex: 10 }}
-                    animate={{
-                      x: x - 24,
-                      y: y - 24,
-                      scale: 1,
-                      opacity: 1,
-                    }}
-                    transition={{
-                      duration: 0.4,
-                      delay: index * 0.08,
-                      type: 'spring',
-                      stiffness: 300,
-                      damping: 15
-                    }}
-                    title={tech.name}
-                  >
-                    {tech.icon}
-                  </motion.div>
-                )
-              })}
-
-              {/* Glowing effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-            </div>
-          </motion.div>
-
-          {/* Bio Card */}
+          {/* Bio Card with Floating Tech Logos on Hover */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -152,12 +82,14 @@ const About = () => {
           >
             <motion.div
               variants={itemVariants}
-              className="glass rounded-3xl p-8 glow-box-hover"
+              className="glass rounded-3xl p-8 glow-box-hover relative group"
             >
               <h3 className="text-2xl font-display font-semibold mb-6 gradient-text">
                 Who Am I?
               </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+
+              {/* Text content with hover effect */}
+              <div className="space-y-4 text-gray-300 leading-relaxed relative">
                 <p>
                   Hello! I'm <span className="text-primary font-semibold">Abdellatif Abouhafss Elidrissi</span>,
                   a 24-year-old passionate Full-Stack Web Developer from Morocco.
@@ -176,6 +108,51 @@ const About = () => {
                   When I'm not coding, you'll find me exploring new technologies,
                   contributing to open-source projects, and continuously expanding my skill set.
                 </p>
+
+                {/* Floating Tech Logos - appear on hover over text */}
+                {techLogos.map((tech, index) => {
+                  // Position logos in a scattered pattern above the text
+                  const positions = [
+                    { x: -20, y: -60 },
+                    { x: 60, y: -80 },
+                    { x: 150, y: -50 },
+                    { x: 240, y: -75 },
+                    { x: 320, y: -55 },
+                    { x: 400, y: -70 },
+                    { x: 100, y: -100 },
+                    { x: 280, y: -95 },
+                  ]
+                  const pos = positions[index] || { x: index * 60, y: -60 }
+
+                  return (
+                    <motion.div
+                      key={tech.name}
+                      className="absolute w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center text-xs font-bold shadow-lg cursor-pointer opacity-0 group-hover:opacity-100 border border-white/20 z-10"
+                      style={{
+                        backgroundColor: tech.color,
+                        color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
+                        left: pos.x,
+                        top: pos.y,
+                        boxShadow: `0 0 20px ${tech.color}60`,
+                      }}
+                      initial={{ y: 20, opacity: 0, scale: 0.5 }}
+                      whileHover={{ scale: 1.2, y: -5 }}
+                      animate={{ y: 0, opacity: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        delay: index * 0.05,
+                      }}
+                      title={tech.name}
+                    >
+                      <motion.span
+                        className="opacity-0 group-hover:opacity-100"
+                        transition={{ delay: index * 0.05 + 0.1 }}
+                      >
+                        {tech.icon}
+                      </motion.span>
+                    </motion.div>
+                  )
+                })}
               </div>
 
               {/* Skills Badges */}
