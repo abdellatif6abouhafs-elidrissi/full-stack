@@ -84,10 +84,12 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Placeholder gradient - replace with your actual image */}
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 via-dark-secondary to-purple-500/20 flex items-center justify-center">
-                <span className="text-6xl md:text-8xl font-bold gradient-text">A</span>
-              </div>
+              {/* Profile Image */}
+              <img
+                src="/profile.jpg"
+                alt="Abdellatif Abouhafss Elidrissi"
+                className="w-full h-full object-cover"
+              />
 
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
