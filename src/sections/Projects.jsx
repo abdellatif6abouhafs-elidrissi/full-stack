@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Folder } from 'lucide-react'
+import { useState } from 'react'
 
 const projects = [
   {
@@ -61,6 +62,30 @@ const projects = [
 ]
 
 const ProjectCard = ({ project, index }) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const [colorIndex, setColorIndex] = useState(0)
+  const colors = ['#EF4444', '#EAB308', '#22C55E'] // red, yellow, green
+
+  // Color cycling on hover
+  const handleMouseEnter = () => {
+    setIsHovered(true)
+    let idx = 0
+    const interval = setInterval(() => {
+      idx = (idx + 1) % 3
+      setColorIndex(idx)
+    }, 400) // Change color every 400ms
+    // Store interval ID to clear on mouse leave
+    window.currentColorInterval = interval
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    if (window.currentColorInterval) {
+      clearInterval(window.currentColorInterval)
+    }
+    setColorIndex(0)
+  }
+
   // Different entry animations for each card - more dramatic
   const getInitialAnimation = (idx) => {
     const animations = [
@@ -89,9 +114,15 @@ const ProjectCard = ({ project, index }) => {
         damping: 12
       }}
       className="group"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="bg-black/90 border-2 border-green-500/30 rounded-2xl overflow-hidden h-full flex flex-col hover:border-green-500 hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] transition-all duration-300"
+        className="bg-black/90 border-2 rounded-2xl overflow-hidden h-full flex flex-col transition-all duration-300"
+        style={{
+          borderColor: isHovered ? colors[colorIndex] : 'rgba(34, 197, 94, 0.3)',
+          boxShadow: isHovered ? `0 0 30px ${colors[colorIndex]}50` : 'none'
+        }}
         whileHover={{ y: -10 }}
         transition={{ duration: 0.3 }}
       >
