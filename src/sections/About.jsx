@@ -1,9 +1,20 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Award, Code2, Calendar } from 'lucide-react'
+import { useState } from 'react'
 
 const skills = [
   'JavaScript', 'React.js', 'Node.js', 'Express',
   'MongoDB', 'Tailwind CSS', 'REST APIs', 'Git'
+]
+
+// Tech logos with SVG icons
+const techLogos = [
+  { name: 'JavaScript', color: '#F7DF1E', icon: 'JS' },
+  { name: 'React', color: '#61DAFB', icon: '⚛️' },
+  { name: 'Node.js', color: '#339933', icon: 'N' },
+  { name: 'MongoDB', color: '#47A248', icon: 'M' },
+  { name: 'Git', color: '#F05032', icon: 'G' },
+  { name: 'TypeScript', color: '#3178C6', icon: 'TS' },
 ]
 
 const timeline = [
@@ -57,6 +68,87 @@ const About = () => {
           <p className="text-gray-400 max-w-2xl mx-auto">
             Get to know me better - my background, skills, and journey
           </p>
+        </motion.div>
+
+        {/* Profile Image with Floating Tech Logos */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="flex justify-center mb-16"
+        >
+          <div className="relative group">
+            {/* Main Image Container */}
+            <motion.div
+              className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Placeholder gradient - replace with your actual image */}
+              <div className="w-full h-full bg-gradient-to-br from-primary/20 via-dark-secondary to-purple-500/20 flex items-center justify-center">
+                <span className="text-6xl md:text-8xl font-bold gradient-text">A</span>
+              </div>
+
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </motion.div>
+
+            {/* Floating Tech Logos - appear on hover */}
+            {techLogos.map((tech, index) => {
+              const angle = (index * 60) - 60 // Distribute around the circle
+              const radius = 160 // Distance from center
+              const x = Math.cos((angle * Math.PI) / 180) * radius
+              const y = Math.sin((angle * Math.PI) / 180) * radius
+
+              return (
+                <motion.div
+                  key={tech.name}
+                  className="absolute w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-sm md:text-base font-bold shadow-lg cursor-pointer opacity-0 group-hover:opacity-100"
+                  style={{
+                    backgroundColor: tech.color,
+                    color: tech.name === 'JavaScript' || tech.name === 'TypeScript' ? '#000' : '#fff',
+                    left: '50%',
+                    top: '50%',
+                    boxShadow: `0 0 20px ${tech.color}50`,
+                  }}
+                  initial={{ x: 0, y: 0, scale: 0 }}
+                  whileHover={{ scale: 1.2 }}
+                  animate={{
+                    x: x - 24,
+                    y: y - 24,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    type: 'spring',
+                    stiffness: 200
+                  }}
+                  title={tech.name}
+                >
+                  {tech.icon}
+                </motion.div>
+              )
+            })}
+
+            {/* Glowing ring animation */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-primary/50 opacity-0 group-hover:opacity-100"
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.5, 0.2, 0.5]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+              style={{
+                width: '100%',
+                height: '100%',
+                boxShadow: '0 0 30px rgba(56, 189, 248, 0.5)'
+              }}
+            />
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
