@@ -105,56 +105,147 @@ const Skills = () => {
       </div>
 
       <div className="container-custom">
-        {/* Progress Bars */}
-        <div className="max-w-4xl mx-auto mt-20">
+        {/* 3D Proficiency Cards */}
+        <div className="max-w-5xl mx-auto mt-20">
           <motion.h3
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl font-display font-semibold mb-8 text-center gradient-text"
+            className="text-2xl font-display font-semibold mb-12 text-center gradient-text"
           >
             Proficiency Level
           </motion.h3>
 
-          <div className="space-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {skills.slice(0, 8).map((skill, index) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50, rotateX: -30 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  type: 'spring',
+                  stiffness: 100
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  rotateY: 10,
+                  rotateX: -5,
+                  z: 50,
+                }}
+                className="group perspective-1000"
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className="flex justify-between mb-2">
-                  <span className="text-white font-medium flex items-center gap-2">
-                    <span className="text-2xl">{skill.icon}</span>
-                    {skill.name}
-                  </span>
-                  <span className="text-primary font-semibold">{skill.level}%</span>
-                </div>
-                <div className="h-3 bg-dark-tertiary rounded-full overflow-hidden">
-                  <motion.div
-                    className="h-full rounded-full relative overflow-hidden"
+                <div
+                  className="relative glass rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-[0_20px_50px_rgba(56,189,248,0.3)]"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    background: `linear-gradient(135deg, rgba(30,41,59,0.9), rgba(15,23,42,0.95))`,
+                  }}
+                >
+                  {/* Glowing border effect */}
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(90deg, ${skill.color}, #38BDF8)`,
+                      background: `linear-gradient(135deg, ${skill.color}30, transparent, ${skill.color}20)`,
+                      boxShadow: `inset 0 0 20px ${skill.color}20`,
                     }}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, delay: index * 0.1, ease: 'easeOut' }}
+                  />
+
+                  {/* Icon with 3D effect */}
+                  <motion.div
+                    className="text-5xl mb-4 relative z-10"
+                    style={{ transform: 'translateZ(30px)' }}
+                    whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                    transition={{ duration: 0.3 }}
                   >
-                    {/* Shine effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                      initial={{ x: '-100%' }}
-                      whileInView={{ x: '200%' }}
-                      transition={{
-                        duration: 1.5,
-                        delay: index * 0.1 + 0.5,
-                        ease: 'easeInOut',
-                      }}
-                    />
+                    {skill.icon}
                   </motion.div>
+
+                  {/* Skill Name */}
+                  <h4
+                    className="text-white font-semibold mb-3 relative z-10"
+                    style={{ transform: 'translateZ(20px)' }}
+                  >
+                    {skill.name}
+                  </h4>
+
+                  {/* Circular Progress */}
+                  <div className="relative w-20 h-20 mx-auto" style={{ transform: 'translateZ(25px)' }}>
+                    {/* Background circle */}
+                    <svg className="w-full h-full transform -rotate-90">
+                      <circle
+                        cx="40"
+                        cy="40"
+                        r="35"
+                        stroke="rgba(255,255,255,0.1)"
+                        strokeWidth="6"
+                        fill="none"
+                      />
+                      {/* Progress circle */}
+                      <motion.circle
+                        cx="40"
+                        cy="40"
+                        r="35"
+                        stroke={skill.color}
+                        strokeWidth="6"
+                        fill="none"
+                        strokeLinecap="round"
+                        initial={{ strokeDasharray: '0 220' }}
+                        whileInView={{
+                          strokeDasharray: `${skill.level * 2.2} 220`
+                        }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 1.5,
+                          delay: index * 0.1 + 0.3,
+                          ease: 'easeOut'
+                        }}
+                        style={{
+                          filter: `drop-shadow(0 0 10px ${skill.color})`,
+                        }}
+                      />
+                    </svg>
+                    {/* Percentage text */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.span
+                        className="text-lg font-bold"
+                        style={{ color: skill.color }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 + 0.8 }}
+                      >
+                        {skill.level}%
+                      </motion.span>
+                    </div>
+                  </div>
+
+                  {/* Floating particles on hover */}
+                  <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity">
+                    {[...Array(5)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 rounded-full"
+                        style={{
+                          backgroundColor: skill.color,
+                          left: `${20 + i * 15}%`,
+                          bottom: '10%',
+                        }}
+                        animate={{
+                          y: [-10, -50, -10],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          delay: i * 0.2,
+                          repeat: Infinity,
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
