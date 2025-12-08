@@ -73,77 +73,27 @@ const About = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Profile Image with Floating Tech Logos */}
+          {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="flex justify-center"
           >
-            <div className="relative group">
-              {/* Main Image Container */}
-              <motion.div
-                className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                {/* Profile Image */}
-                <img
-                  src="/profile.jpg"
-                  alt="Abdellatif Abouhafss Elidrissi"
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-
-              {/* Floating Tech Logos - appear on hover */}
-              {techLogos.map((tech, index) => {
-                const angle = (index * 45) - 90
-                const radius = 170
-                const x = Math.cos((angle * Math.PI) / 180) * radius
-                const y = Math.sin((angle * Math.PI) / 180) * radius
-
-                return (
-                  <div
-                    key={tech.name}
-                    className="tech-logo absolute w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-xs md:text-sm font-bold shadow-lg cursor-pointer border-2 border-white/20"
-                    style={{
-                      backgroundColor: tech.color,
-                      color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
-                      left: `calc(50% + ${x}px - 24px)`,
-                      top: `calc(50% + ${y}px - 24px)`,
-                      boxShadow: `0 0 25px ${tech.color}80`,
-                      opacity: 0,
-                      transform: 'scale(0)',
-                      transition: `all 0.4s ease ${index * 0.08}s`,
-                    }}
-                    title={tech.name}
-                  >
-                    {tech.icon}
-                  </div>
-                )
-              })}
-
-              {/* Inline style for hover effect */}
-              <style>{`
-                .group:hover .tech-logo {
-                  opacity: 1 !important;
-                  transform: scale(1) !important;
-                }
-                .tech-logo:hover {
-                  transform: scale(1.2) !important;
-                  z-index: 10;
-                }
-              `}</style>
-
-              {/* Glowing effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-            </div>
+            <motion.div
+              className="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-primary/30 shadow-[0_0_40px_rgba(56,189,248,0.3)]"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src="/profile.jpg"
+                alt="Abdellatif Abouhafss Elidrissi"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </motion.div>
 
-          {/* Bio Card */}
+          {/* Bio Card with Floating Tech Logos on Text Hover */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -157,7 +107,9 @@ const About = () => {
               <h3 className="text-2xl font-display font-semibold mb-6 gradient-text">
                 Who Am I?
               </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+
+              {/* Text with floating logos on hover */}
+              <div className="bio-text-container group/text relative space-y-4 text-gray-300 leading-relaxed cursor-default">
                 <p>
                   Hello! I'm <span className="text-primary font-semibold">Abdellatif Abouhafss Elidrissi</span>,
                   a 24-year-old passionate Full-Stack Web Developer from Morocco.
@@ -176,7 +128,51 @@ const About = () => {
                   When I'm not coding, you'll find me exploring new technologies,
                   contributing to open-source projects, and continuously expanding my skill set.
                 </p>
+
+                {/* Floating Tech Logos - appear on hover over text */}
+                {techLogos.map((tech, index) => {
+                  // Scatter logos above the text
+                  const positions = [
+                    { x: 10, y: -50 },
+                    { x: 80, y: -70 },
+                    { x: 160, y: -45 },
+                    { x: 240, y: -65 },
+                    { x: 320, y: -50 },
+                    { x: 390, y: -70 },
+                    { x: 120, y: -90 },
+                    { x: 280, y: -85 },
+                  ]
+                  const pos = positions[index]
+
+                  return (
+                    <div
+                      key={tech.name}
+                      className="text-logo absolute w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center text-xs font-bold shadow-lg border border-white/20 pointer-events-none"
+                      style={{
+                        backgroundColor: tech.color,
+                        color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
+                        left: pos.x,
+                        top: pos.y,
+                        boxShadow: `0 0 20px ${tech.color}60`,
+                        opacity: 0,
+                        transform: 'translateY(20px) scale(0.5)',
+                        transition: `all 0.3s ease ${index * 0.05}s`,
+                      }}
+                      title={tech.name}
+                    >
+                      {tech.icon}
+                    </div>
+                  )
+                })}
               </div>
+
+              {/* CSS for text hover effect */}
+              <style>{`
+                .bio-text-container:hover .text-logo {
+                  opacity: 1 !important;
+                  transform: translateY(0) scale(1) !important;
+                }
+              `}</style>
 
               {/* Skills Badges */}
               <div className="mt-8">
