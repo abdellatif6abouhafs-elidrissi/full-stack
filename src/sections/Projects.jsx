@@ -61,12 +61,33 @@ const projects = [
 ]
 
 const ProjectCard = ({ project, index }) => {
+  // Different entry animations for each card
+  const getInitialAnimation = (idx) => {
+    const animations = [
+      { opacity: 0, x: -100, y: 0 },      // From left
+      { opacity: 0, x: 0, y: -100 },      // From top
+      { opacity: 0, x: 100, y: 0 },       // From right
+      { opacity: 0, x: -100, y: 50 },     // From left-bottom
+      { opacity: 0, x: 0, y: 100 },       // From bottom
+      { opacity: 0, x: 100, y: 50 },      // From right-bottom
+      { opacity: 0, x: -80, y: -80 },     // From top-left
+      { opacity: 0, x: 80, y: -80 },      // From top-right
+    ]
+    return animations[idx % animations.length]
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
+      initial={getInitialAnimation(index)}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        delay: index * 0.15,
+        duration: 0.7,
+        type: 'spring',
+        stiffness: 80,
+        damping: 15
+      }}
       className="group"
     >
       <motion.div
