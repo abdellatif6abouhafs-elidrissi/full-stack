@@ -5,7 +5,7 @@ import { useState } from 'react'
 const projects = [
   // Mobile Apps
   {
-    title: 'Fi-Khidmatik',
+    title: 'Fi-Khidmatik Mobile',
     description: 'Application mobile pour connecter les clients avec des artisans qualifiés au Maroc. Fonctionnalités: authentification, vérification email, recherche d\'artisans, réservations, et avis clients.',
     image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop',
     tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS'],
@@ -14,6 +14,15 @@ const projects = [
     category: 'mobile',
   },
   // Web Apps
+  {
+    title: 'Fi-Khidmatik',
+    description: 'A service booking platform connecting customers with service providers. Features include booking management, user profiles, reviews system, and real-time notifications.',
+    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop',
+    tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
+    live: 'https://fi-khidmatik.vercel.app/fr',
+    category: 'web',
+  },
   {
     title: 'MediTrade',
     description: 'A comprehensive trading platform for buying and selling with real-time market data, user authentication, secure transactions, and admin dashboard for managing trades.',
