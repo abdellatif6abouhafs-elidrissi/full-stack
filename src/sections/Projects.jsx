@@ -6,8 +6,8 @@ const projects = [
   // Mobile Apps
   {
     title: 'Fi-Khidmatik Mobile',
-    description: 'Application mobile pour connecter les clients avec des artisans qualifiés au Maroc. Fonctionnalités: authentification, vérification email, recherche d\'artisans, réservations, et avis clients.',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop',
+    description: 'Application mobile pour connecter les clients avec des artisans qualifiés au Maroc. Plombiers, électriciens, menuisiers, peintres, et plus. Réservation facile et avis clients.',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=600&fit=crop',
     tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khdmitk-app',
     live: 'https://frontend-seven-gamma-60.vercel.app',
