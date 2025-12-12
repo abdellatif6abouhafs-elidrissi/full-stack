@@ -3,6 +3,17 @@ import { ExternalLink, Github, Folder } from 'lucide-react'
 import { useState } from 'react'
 
 const projects = [
+  // Mobile Apps
+  {
+    title: 'Fi-Khidmatik',
+    description: 'Application mobile pour connecter les clients avec des artisans qualifiés au Maroc. Fonctionnalités: authentification, vérification email, recherche d\'artisans, réservations, et avis clients.',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop',
+    tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khdmitk-app',
+    live: 'https://frontend-seven-gamma-60.vercel.app',
+    category: 'mobile',
+  },
+  // Web Apps
   {
     title: 'MediTrade',
     description: 'A comprehensive trading platform for buying and selling with real-time market data, user authentication, secure transactions, and admin dashboard for managing trades.',
@@ -10,6 +21,7 @@ const projects = [
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://medi-trade-mna3.vercel.app/',
+    category: 'web',
   },
   {
     title: 'Designer Portfolio',
@@ -18,14 +30,7 @@ const projects = [
     tech: ['React', 'GSAP', 'Three.js', 'Tailwind CSS'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://designer-portfolio-opal-kappa.vercel.app/',
-  },
-  {
-    title: 'Fi-Khidmatik',
-    description: 'A service booking platform connecting customers with service providers. Features include booking management, user profiles, reviews system, and real-time notifications.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop',
-    tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://fi-khidmatik.vercel.app/fr',
+    category: 'web',
   },
   {
     title: 'E-Commerce Dashboard',
@@ -34,6 +39,7 @@ const projects = [
     tech: ['React', 'Chart.js', 'Tailwind CSS', 'REST API'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://ecommerce-dashboard-xi-one.vercel.app/',
+    category: 'web',
   },
   {
     title: 'Medi-Fast',
@@ -42,6 +48,7 @@ const projects = [
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://medifast.vercel.app/',
+    category: 'mobile',
   },
   {
     title: 'Developer Portfolio',
@@ -50,6 +57,7 @@ const projects = [
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://developer-portfolio-bay-gamma.vercel.app/',
+    category: 'web',
   },
   {
     title: 'V0 Portfolio',
@@ -58,7 +66,14 @@ const projects = [
     tech: ['React', 'Tailwind CSS', 'Vercel'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
     live: 'https://v0-portfolio-website-woad-eight-87.vercel.app/',
+    category: 'web',
   },
+]
+
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'web', label: 'Web Apps' },
+  { id: 'mobile', label: 'Mobile Apps' },
 ]
 
 const ProjectCard = ({ project, index }) => {
@@ -244,6 +259,12 @@ const ProjectCard = ({ project, index }) => {
 }
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState('all')
+
+  const filteredProjects = activeCategory === 'all'
+    ? projects
+    : projects.filter(p => p.category === activeCategory)
+
   return (
     <section id="projects" className="section-padding bg-dark-secondary/30">
       <div className="container-custom">
@@ -252,7 +273,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             <span className="text-green-500 font-mono">$</span> Featured <span className="text-green-400">Projects</span>
@@ -262,12 +283,42 @@ const Projects = () => {
           </p>
         </motion.div>
 
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-4 mb-12"
+        >
+          {categories.map((category) => (
+            <motion.button
+              key={category.id}
+              onClick={() => setActiveCategory(category.id)}
+              className={`px-6 py-3 font-mono text-sm font-bold rounded-lg border-2 transition-all duration-300 ${
+                activeCategory === category.id
+                  ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)]'
+                  : 'bg-black text-green-400 border-green-500/50 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]'
+              }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              [{category.label.toUpperCase()}]
+            </motion.button>
+          ))}
+        </motion.div>
+
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <motion.div
+          key={activeCategory}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredProjects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
-        </div>
+        </motion.div>
 
         {/* View More Button */}
         <motion.div
