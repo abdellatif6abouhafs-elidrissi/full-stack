@@ -5,6 +5,7 @@ import Hero from './sections/Hero'
 import About from './sections/About'
 import Projects from './sections/Projects'
 import Skills from './sections/Skills'
+import WhyHireMe from './sections/WhyHireMe'
 import Contact from './sections/Contact'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <About isDark={isDark} />
         <Skills isDark={isDark} />
         <Projects isDark={isDark} />
+        <WhyHireMe isDark={isDark} />
         <Contact isDark={isDark} />
       </main>
       <Footer isDark={isDark} />

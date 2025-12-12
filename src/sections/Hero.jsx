@@ -69,10 +69,10 @@ const HackerTerminal = () => {
   const [showFinalCursor, setShowFinalCursor] = useState(false)
   const [cycle, setCycle] = useState(0) // Trigger to restart animation
 
-  const text1 = './whoami.sh'
-  const text2 = '[+] Scanning developer profile...'
-  const text3 = '[+] Access granted... Loading skills...'
-  const text4 = "> I'm simply the best Full-Stack Developer <"
+  const text1 = './profile.sh'
+  const text2 = '[+] Loading developer profile...'
+  const text3 = '[+] Skills: React.js | Node.js | MongoDB'
+  const text4 = "> Ready to build amazing web applications! <"
 
   useEffect(() => {
     // Reset all states at start of each cycle
@@ -247,14 +247,13 @@ const Particles = () => {
 }
 
 const Hero = () => {
-  const roles = ['Full-Stack Developer', 'React Expert', 'Node.js Developer', 'MERN Stack Developer']
+  const roles = ['Junior Full-Stack Developer', 'React.js Specialist', 'Node.js Developer', 'MERN Stack Developer']
 
-  // Full text with "Hi, I'm Abdellatif" - marking which letters are part of the name
-  const fullText = "Hi, I'm Abdellatif"
-  const nameStart = fullText.indexOf('Abdellatif')
+  // Full text with name - marking which letters are part of the name
+  const fullText = "Abdellatif Abouhafss"
   const fullNameLetters = fullText.split('').map((char, index) => ({
     char,
-    isName: index >= nameStart
+    isName: true
   }))
 
   return (
@@ -352,14 +351,14 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-&gt;_ Welcome to my portfolio
+&gt;_ Junior Full-Stack Developer | Open to Work
             </motion.span>
           </motion.span>
         </motion.div>
 
         {/* Name with typewriter animation */}
         <motion.h1
-          className="text-4xl sm:text-5xl md:text-7xl font-mono font-bold mb-6"
+          className="text-4xl sm:text-5xl md:text-7xl font-mono font-bold mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
@@ -389,14 +388,23 @@ const Hero = () => {
           />
         </motion.h1>
 
+        {/* Surname */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.2 }}
+          className="text-2xl sm:text-3xl md:text-4xl text-white font-mono font-bold mb-6"
+        >
+          Elidrissi
+        </motion.h2>
+
         {/* Typewriter Title */}
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 2.5 }}
           className="text-xl sm:text-2xl md:text-3xl text-gray-400 font-mono font-medium mb-8 h-[40px] flex items-center justify-center"
         >
-          <span className="mr-2">I'm a</span>
           <TypeWriter words={roles} className="text-green-400 font-semibold" />
         </motion.h2>
 
@@ -404,24 +412,24 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
+          transition={{ delay: 2.8, duration: 0.6 }}
           className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-mono text-center"
         >
-I build modern, scalable, and high-performance web applications using
-          React.js, Node.js, and MongoDB. Passionate about creating clean code
-          and exceptional user experiences.
+          Passionate about building modern, scalable web applications with React.js, Node.js, and MongoDB.
+          I transform ideas into clean, efficient code that delivers exceptional user experiences.
+          Currently seeking opportunities to contribute to innovative projects.
         </motion.p>
 
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7 }}
+          transition={{ delay: 3 }}
           className="flex justify-center gap-8 mb-10"
         >
           {[
-            { value: 7, label: 'Projects', suffix: '+' },
-            { value: 2, label: 'Years Exp', suffix: '+' },
+            { value: 8, label: 'Projects', suffix: '+' },
+            { value: 2, label: 'Years Learning', suffix: '+' },
             { value: 10, label: 'Technologies', suffix: '+' },
           ].map((stat, index) => (
             <motion.div
@@ -441,18 +449,17 @@ I build modern, scalable, and high-performance web applications using
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.9 }}
+          transition={{ delay: 3.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <motion.a
-            href="/cv.pdf"
-            download
+            href="#projects"
             className="group flex items-center gap-2 px-8 py-4 bg-green-500 text-black font-mono font-bold rounded-lg hover:bg-green-400 transition-all duration-300 border-2 border-green-400"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34, 197, 94, 0.5)' }}
             whileTap={{ scale: 0.95 }}
           >
-            <Download className="w-5 h-5 group-hover:animate-bounce" />
-            [DOWNLOAD_CV]
+            <Code2 className="w-5 h-5" />
+            [VIEW_PROJECTS]
           </motion.a>
 
           <motion.a
@@ -464,13 +471,24 @@ I build modern, scalable, and high-performance web applications using
             <Mail className="w-5 h-5" />
             [CONTACT_ME]
           </motion.a>
+
+          <motion.a
+            href="/cv.pdf"
+            download
+            className="group flex items-center gap-2 px-8 py-4 bg-black border-2 border-green-500/50 text-green-400 font-mono font-bold rounded-lg hover:bg-green-500 hover:text-black transition-all duration-300"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(34, 197, 94, 0.3)' }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download className="w-5 h-5 group-hover:animate-bounce" />
+            [DOWNLOAD_CV]
+          </motion.a>
         </motion.div>
 
         {/* Hacker Terminal Box */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2.1, duration: 0.5 }}
+          transition={{ delay: 3.5, duration: 0.5 }}
           className="max-w-2xl mx-auto mt-8"
         >
           <HackerTerminal />

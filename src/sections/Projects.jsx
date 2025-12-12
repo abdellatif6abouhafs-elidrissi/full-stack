@@ -5,18 +5,18 @@ import { useState } from 'react'
 const projects = [
   // Mobile Apps
   {
-    title: 'Fi-Khidmatik Mobile',
-    description: 'Application mobile pour connecter les clients avec des artisans qualifiés au Maroc. Plombiers, électriciens, menuisiers, peintres, et plus. Réservation facile et avis clients.',
+    title: 'ServiceConnect Pro',
+    description: 'Full-stack mobile platform connecting clients with verified service professionals. Features JWT authentication, email verification, booking system, ratings & reviews, and real-time notifications.',
     image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop',
-    tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS'],
+    tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS', 'JWT'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khdmitk-app',
     live: 'https://frontend-seven-gamma-60.vercel.app',
     category: 'mobile',
   },
   // Web Apps
   {
-    title: 'Fi-Khidmatik',
-    description: 'A service booking platform connecting customers with service providers. Features include booking management, user profiles, reviews system, and real-time notifications.',
+    title: 'ServiceConnect Web',
+    description: 'Comprehensive service booking platform with multi-language support, user authentication, service provider profiles, and integrated payment system.',
     image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop',
     tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -24,8 +24,8 @@ const projects = [
     category: 'web',
   },
   {
-    title: 'MediTrade',
-    description: 'A comprehensive trading platform for buying and selling with real-time market data, user authentication, secure transactions, and admin dashboard for managing trades.',
+    title: 'TradeHub Platform',
+    description: 'Full-stack trading platform featuring real-time market data, secure user authentication, transaction management, and comprehensive admin dashboard.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -33,8 +33,8 @@ const projects = [
     category: 'web',
   },
   {
-    title: 'Designer Portfolio',
-    description: 'A premium portfolio website for graphic designers featuring GSAP animations, Three.js 3D elements, image galleries, testimonials carousel, and EmailJS contact form.',
+    title: 'CreativeStudio Portfolio',
+    description: 'Premium portfolio template with advanced GSAP animations, Three.js 3D elements, dynamic galleries, testimonials carousel, and EmailJS contact integration.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
     tech: ['React', 'GSAP', 'Three.js', 'Tailwind CSS'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -42,8 +42,8 @@ const projects = [
     category: 'web',
   },
   {
-    title: 'E-Commerce Dashboard',
-    description: 'An admin dashboard for e-commerce management with analytics, order tracking, inventory management, and sales reporting with interactive charts.',
+    title: 'Analytics Dashboard',
+    description: 'Feature-rich admin dashboard for e-commerce with real-time analytics, order management, inventory tracking, and interactive data visualizations.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
     tech: ['React', 'Chart.js', 'Tailwind CSS', 'REST API'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -51,8 +51,8 @@ const projects = [
     category: 'web',
   },
   {
-    title: 'Medi-Fast',
-    description: 'A fast medical appointment booking system with doctor profiles, availability calendar, patient management, and appointment reminders.',
+    title: 'MediBook System',
+    description: 'Healthcare appointment management system with doctor profiles, smart scheduling, patient records, and automated appointment reminders.',
     image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop',
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -60,8 +60,8 @@ const projects = [
     category: 'mobile',
   },
   {
-    title: 'Developer Portfolio',
-    description: 'A modern developer portfolio showcasing projects, skills, and experience with smooth animations, dark mode, and responsive design.',
+    title: 'DevShowcase Portfolio',
+    description: 'Modern developer portfolio with Framer Motion animations, dark/light theme, project showcase, skills visualization, and responsive design.',
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
@@ -69,8 +69,8 @@ const projects = [
     category: 'web',
   },
   {
-    title: 'V0 Portfolio',
-    description: 'A sleek portfolio website built with modern design principles, featuring smooth transitions and an elegant user interface.',
+    title: 'MinimalFolio',
+    description: 'Clean, minimalist portfolio design focused on user experience, featuring smooth page transitions and elegant typography.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
     tech: ['React', 'Tailwind CSS', 'Vercel'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
