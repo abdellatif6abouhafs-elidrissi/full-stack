@@ -10,26 +10,17 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop',
     tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS', 'JWT'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khdmitk-app',
-    live: 'https://frontend-seven-gamma-60.vercel.app',
+    live: 'https://fi-khidmatik.vercel.app',
     category: 'mobile',
   },
   // Web Apps
-  {
-    title: 'ServiceConnect Web',
-    description: 'Comprehensive service booking platform with multi-language support, user authentication, service provider profiles, and integrated payment system.',
-    image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop',
-    tech: ['React', 'Node.js', 'MongoDB', 'REST API'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://fi-khidmatik.vercel.app/fr',
-    category: 'web',
-  },
   {
     title: 'TradeHub Platform',
     description: 'Full-stack trading platform featuring real-time market data, secure user authentication, transaction management, and comprehensive admin dashboard.',
     image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
     tech: ['React', 'Node.js', 'MongoDB', 'Express'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://medi-trade-mna3.vercel.app/',
+    live: 'https://meditrade-app.vercel.app/',
     category: 'web',
   },
   {
@@ -65,7 +56,7 @@ const projects = [
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
     tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://developer-portfolio-bay-gamma.vercel.app/',
+    live: 'https://full-stack-virid-one.vercel.app/',
     category: 'web',
   },
   {
