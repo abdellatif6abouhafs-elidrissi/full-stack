@@ -24,6 +24,15 @@ const projects = [
     category: 'web',
   },
   {
+    title: 'ShopHub E-Commerce',
+    description: 'Full-stack e-commerce platform with Stripe payments, user authentication, shopping cart, order management, product catalog, and admin dashboard.',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    tech: ['Next.js', 'MongoDB', 'Stripe', 'TailwindCSS', 'NextAuth'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/shophub',
+    live: 'https://ecommerce-store-lyart-seven.vercel.app',
+    category: 'web',
+  },
+  {
     title: 'CreativeStudio Portfolio',
     description: 'Premium portfolio template with advanced GSAP animations, Three.js 3D elements, dynamic galleries, testimonials carousel, and EmailJS contact integration.',
     image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
