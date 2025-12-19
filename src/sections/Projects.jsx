@@ -50,16 +50,7 @@ const projects = [
     live: 'https://medifast.vercel.app/',
     category: 'mobile',
   },
-  {
-    title: 'DevShowcase Portfolio',
-    description: 'Modern developer portfolio with Framer Motion animations, dark/light theme, project showcase, skills visualization, and responsive design.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
-    tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://full-stack-virid-one.vercel.app/',
-    category: 'web',
-  },
-  {
+    {
     title: 'MinimalFolio',
     description: 'Clean, minimalist portfolio design focused on user experience, featuring smooth page transitions and elegant typography.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
