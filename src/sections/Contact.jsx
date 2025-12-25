@@ -70,10 +70,10 @@ const Contact = () => {
 
     try {
       await emailjs.sendForm(
-        'service_6izrbyg',
-        'template_3q7v1ve',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        'gHMkjU3VqkT1916z3'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
 
       setStatus({
@@ -82,6 +82,7 @@ const Contact = () => {
       })
       setFormData({ from_name: '', from_email: '', message: '' })
     } catch (error) {
+      console.error('EmailJS Error:', error);
       setStatus({
         type: 'error',
         message: 'Failed to send message. Please try again.',
