@@ -3,6 +3,16 @@ import { ExternalLink, Github, Folder } from 'lucide-react'
 import { useState } from 'react'
 
 const projects = [
+  // Business Tools
+  {
+    title: 'ToolsForge',
+    description: 'Free business tools platform for freelancers. Invoice Generator with PDF export, SEO blog, Google Search Console verified.',
+    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'jsPDF', 'Vercel'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/toolsforge.app',
+    live: 'https://toolsforge-app.vercel.app',
+    category: 'web',
+  },
   // Mobile Apps
   {
     title: 'ServiceConnect Pro',
