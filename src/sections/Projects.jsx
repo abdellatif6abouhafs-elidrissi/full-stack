@@ -13,6 +13,24 @@ const projects = [
     live: 'https://toolsforge-app.vercel.app',
     category: 'web',
   },
+  {
+    title: 'GasManager.ma',
+    description: 'SaaS platform for Moroccan gas station management. Inventory tracking, sales reports, shift management, and analytics dashboard for small business owners.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Express.js', 'Tailwind CSS', 'Vercel'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/gasmanager',
+    live: 'https://gasmanager.ma',
+    category: 'web',
+  },
+  {
+    title: 'Salon Nour',
+    description: 'Full-stack booking and management system for a local hair salon. Online appointments, client management, and admin dashboard.',
+    image: 'https://images.unsplash.com/photo-1560066169-b763a5433771?w=800&h=600&fit=crop',
+    tech: ['React', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+    github: 'Coming Soon',
+    live: 'Coming Soon',
+    category: 'web',
+  },
   // Mobile Apps
   {
     title: 'ServiceConnect Pro',
