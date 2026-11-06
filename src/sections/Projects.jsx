@@ -19,7 +19,6 @@ const projects = [
     problem: 'A gas station was tracking stock and sales by hand.',
     built: 'A management dashboard for inventory, sales and daily operations.',
     result: 'Live on Vercel, used daily by a gas station in Morocco.',
-    note: 'Demo: demo@gasmanager.ma / Demo1234!',
     image: '/projects/gasmanager.jpg',
     tech: ['Next.js', 'TypeScript', 'MongoDB', 'Vercel'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi/-gas-manager',
@@ -192,10 +191,6 @@ const ProjectCard = ({ project, index }) => {
               </div>
             ))}
           </dl>
-
-          {project.note && (
-            <p className="text-xs font-mono text-green-500/80 mb-4 break-all">{project.note}</p>
-          )}
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-4">
