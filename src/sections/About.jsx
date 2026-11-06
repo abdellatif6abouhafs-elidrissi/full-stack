@@ -1,16 +1,15 @@
 import { motion } from 'framer-motion'
 import { GraduationCap, Award, Code2, Calendar } from 'lucide-react'
-import { useState } from 'react'
 
 const skills = [
-  'JavaScript', 'React.js', 'Node.js', 'Express',
-  'MongoDB', 'Tailwind CSS', 'REST APIs', 'Git'
+  'Next.js', 'TypeScript', 'Node.js', 'MongoDB',
+  'Tailwind CSS', 'REST APIs', 'Git'
 ]
 
 // Tech logos matching the skills below
 const techLogos = [
-  { name: 'JavaScript', color: '#F7DF1E', icon: 'JS' },
-  { name: 'React.js', color: '#61DAFB', icon: '⚛️' },
+  { name: 'TypeScript', color: '#3178C6', icon: 'TS' },
+  { name: 'Next.js', color: '#000000', icon: '▲' },
   { name: 'Node.js', color: '#339933', icon: 'N' },
   { name: 'Express', color: '#000000', icon: 'Ex' },
   { name: 'MongoDB', color: '#47A248', icon: 'M' },
@@ -35,18 +34,10 @@ const timeline = [
     certificate: null,
   },
   {
-    icon: Award,
-    title: 'Kingston Business Academy',
-    subtitle: 'The 7 Habits of the Happiest People - Certificate',
-    year: '2025',
-    certificate: '/certificate.pdf',
-    hasCertificatePreview: true,
-  },
-  {
     icon: Code2,
-    title: 'Full-Stack Developer',
-    subtitle: 'Building Web Applications',
-    year: 'Present',
+    title: 'Freelance Full-Stack Developer',
+    subtitle: 'Shipped GasManager.ma, ToolsForge, Salon Nour',
+    year: '2024–present',
     certificate: null,
   },
 ]
@@ -79,7 +70,7 @@ const About = () => {
             <span className="text-green-500 font-mono">$</span> About <span className="text-green-400">Me</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Get to know me better - my background, skills, and journey
+            Who I am, what I build, and how I work
           </p>
         </motion.div>
 
@@ -122,22 +113,14 @@ const About = () => {
               {/* Text with floating logos on hover */}
               <div className="bio-text-container group/text relative space-y-4 text-gray-300 leading-relaxed cursor-default">
                 <p>
-                  Hello! I'm <span className="text-green-400 font-semibold">Abdellatif Abouhafss Elidrissi</span>,
-                  a 24-year-old passionate Full-Stack Web Developer from Morocco.
+                  I'm <span className="text-green-400 font-semibold">Abdellatif</span>,
+                  a full-stack developer from Morocco. I build and ship web applications for
+                  small businesses and startups — booking systems, dashboards, SaaS tools —
+                  and I keep them running after launch.
                 </p>
                 <p>
-                  With a strong foundation in Physical Sciences and specialized training
-                  from Najm Academy, I've developed expertise in building modern,
-                  scalable web applications that deliver exceptional user experiences.
-                </p>
-                <p>
-                  I specialize in the <span className="text-green-400">MERN stack</span> (MongoDB, Express, React, Node.js)
-                  and love turning complex problems into simple, elegant solutions.
-                  My approach combines clean code practices with creative problem-solving.
-                </p>
-                <p>
-                  When I'm not coding, you'll find me exploring new technologies,
-                  contributing to open-source projects, and continuously expanding my skill set.
+                  I work with <span className="text-green-400">Next.js, TypeScript, Node.js and MongoDB</span>,
+                  and I use AI tooling daily to ship faster without cutting quality.
                 </p>
 
                 {/* Floating Tech Logos - half above, half below text */}
@@ -165,7 +148,7 @@ const About = () => {
                       className="text-logo absolute w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center text-xs font-bold shadow-lg border border-white/20 pointer-events-none"
                       style={{
                         backgroundColor: tech.color,
-                        color: tech.name === 'JavaScript' || tech.name === 'Tailwind' ? '#000' : '#fff',
+                        color: tech.name === 'Tailwind' ? '#000' : '#fff',
                         left: pos.x,
                         top: pos.y,
                         boxShadow: `0 0 20px ${tech.color}60`,
@@ -244,7 +227,7 @@ const About = () => {
                     </motion.div>
 
                     {/* Content */}
-                    <div className={`relative ${item.hasCertificatePreview ? 'group' : ''}`}>
+                    <div className="relative">
                       <motion.div
                         className="bg-black/80 border border-green-500/30 rounded-xl p-6 hover:border-green-500 hover:shadow-[0_0_20px_rgba(34,197,94,0.2)] transition-all duration-300 cursor-pointer"
                         whileHover={{ x: 5 }}
@@ -257,63 +240,8 @@ const About = () => {
                           {item.title}
                         </h4>
                         <p className="text-gray-400">{item.subtitle}</p>
-                        {item.hasCertificatePreview && (
-                          <p className="text-xs text-green-500 mt-2 opacity-70 font-mono">&gt;_ hover_to_view</p>
-                        )}
                       </motion.div>
 
-                      {/* Certificate Preview on Hover */}
-                      {item.hasCertificatePreview && (
-                        <div className="absolute left-0 bottom-full mb-4 w-[400px] md:w-[500px] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30">
-                          <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl shadow-[0_0_40px_rgba(56,189,248,0.5)] overflow-hidden border-4 border-double border-amber-600">
-                            <div className="p-4 text-center">
-                              {/* Header */}
-                              <div className="flex justify-center items-center gap-3 mb-3">
-                                <span className="text-2xl">🏆</span>
-                                <div>
-                                  <h3 className="text-amber-800 font-bold text-sm">KINGSTON BUSINESS ACADEMY</h3>
-                                  <p className="text-amber-600 text-xs">UK Education Quality Management</p>
-                                </div>
-                                <span className="text-2xl">🎓</span>
-                              </div>
-
-                              {/* Title */}
-                              <div className="border-y border-amber-400 py-2 mb-3">
-                                <h2 className="text-lg font-serif font-bold text-amber-900">
-                                  CERTIFICATE OF PARTICIPATION
-                                </h2>
-                              </div>
-
-                              {/* Recipient */}
-                              <p className="text-gray-600 text-xs mb-1">This is to certify that</p>
-                              <h3 className="text-lg font-bold text-gray-800 mb-2">
-                                ABDELLATIF ABOUHAFS ELIDRISSI
-                              </h3>
-
-                              {/* Course */}
-                              <p className="text-gray-600 text-xs">has successfully completed</p>
-                              <p className="text-sm font-semibold text-blue-600 mb-3">
-                                "The 7 Habits of the Happiest People"
-                              </p>
-
-                              {/* Footer */}
-                              <div className="flex justify-between items-center pt-2 border-t border-amber-300 text-xs">
-                                <div className="text-left text-gray-500">
-                                  <p>Future Leaders 978</p>
-                                  <p>Kingston Trainers Team</p>
-                                </div>
-                                <span className="text-xl">🇬🇧</span>
-                                <div className="text-right text-gray-500">
-                                  <p>Date</p>
-                                  <p className="font-semibold">25.08.2025</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          {/* Arrow */}
-                          <div className="absolute left-8 bottom-0 translate-y-full w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-amber-600"></div>
-                        </div>
-                      )}
                     </div>
                   </motion.div>
                 ))}

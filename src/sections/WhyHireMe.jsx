@@ -1,42 +1,24 @@
 import { motion } from 'framer-motion'
-import { Zap, Target, Users, Lightbulb, Clock, Code2, Rocket, Heart } from 'lucide-react'
+import { MessageSquare, Wrench, Code2, Rocket, Heart } from 'lucide-react'
 
 const reasons = [
   {
-    icon: Zap,
-    title: 'Fast Learner',
-    description: 'I quickly adapt to new technologies and frameworks. My self-taught journey proves my ability to learn independently.',
-    color: '#F59E0B',
-  },
-  {
-    icon: Target,
-    title: 'Goal-Oriented',
-    description: 'I focus on delivering results. Every line of code I write is aimed at solving real problems and creating value.',
+    icon: Rocket,
+    title: 'I ship, not just prototype',
+    description: 'Live products, not demos. Everything in my portfolio is deployed and used by real people.',
     color: '#10B981',
   },
   {
-    icon: Code2,
-    title: 'Clean Code',
-    description: 'I write maintainable, readable code following best practices. Quality is not negotiable in my work.',
+    icon: MessageSquare,
+    title: 'Clear communication',
+    description: 'Regular progress updates and plain-English explanations. You always know where your project stands.',
     color: '#3B82F6',
   },
   {
-    icon: Users,
-    title: 'Team Player',
-    description: 'I collaborate effectively, communicate clearly, and contribute positively to team dynamics.',
-    color: '#8B5CF6',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Problem Solver',
-    description: 'I approach challenges analytically and creatively. Complex problems excite me rather than discourage me.',
-    color: '#EC4899',
-  },
-  {
-    icon: Clock,
-    title: 'Reliable',
-    description: 'I meet deadlines and deliver what I promise. You can count on me to get the job done right.',
-    color: '#06B6D4',
+    icon: Wrench,
+    title: 'Built for maintenance',
+    description: 'Clean code and documentation, and I stay available after launch to fix, adjust and extend.',
+    color: '#F59E0B',
   },
 ]
 
@@ -59,19 +41,19 @@ const WhyHireMe = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-black border border-green-500/50 rounded-lg mb-6"
           >
             <Rocket className="w-4 h-4 text-green-400" />
-            <span className="text-sm text-green-400 font-mono">[OPEN_TO_OPPORTUNITIES]</span>
+            <span className="text-sm text-green-400 font-mono">[AVAILABLE_FOR_PROJECTS]</span>
           </motion.div>
 
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             <span className="text-green-500 font-mono">$</span> Why <span className="text-green-400">Hire Me?</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            What I bring to your team and why I'm the right fit for your next project
+            What you get when you work with me
           </p>
         </motion.div>
 
         {/* Reasons Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
@@ -146,12 +128,11 @@ const WhyHireMe = () => {
             </motion.div>
 
             <h3 className="text-2xl md:text-3xl font-mono font-bold text-white mb-4">
-              Let's Build Something <span className="text-green-400">Amazing</span> Together
+              Let's Build Something <span className="text-green-400">That Ships</span>
             </h3>
 
             <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-              I'm actively looking for opportunities where I can contribute, learn, and grow.
-              Whether it's a full-time position, freelance project, or collaboration - I'm ready!
+              Have a project in mind? I'm available for freelance work — let's talk.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -162,7 +143,7 @@ const WhyHireMe = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <Rocket className="w-5 h-5" />
-                [HIRE_ME_NOW]
+                [START_A_PROJECT]
               </motion.a>
 
               <motion.a

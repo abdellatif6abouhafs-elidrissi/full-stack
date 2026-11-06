@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mail, MapPin, Phone, CheckCircle, AlertCircle, Loader2, Github, Linkedin, ArrowUpRight, Sparkles, Instagram, Facebook } from 'lucide-react'
+import { Send, Mail, MapPin, CheckCircle, AlertCircle, Loader2, Github, Linkedin, ArrowUpRight, Sparkles, Instagram, Facebook } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 const contactInfo = [
@@ -9,13 +9,6 @@ const contactInfo = [
     label: 'email.config',
     value: 'alleabdo301@gmail.com',
     href: 'mailto:alleabdo301@gmail.com',
-    color: '#22C55E',
-  },
-  {
-    icon: Phone,
-    label: 'phone.connect',
-    value: '+212 625 034 547',
-    href: 'tel:+212625034547',
     color: '#22C55E',
   },
   {
@@ -130,7 +123,7 @@ const Contact = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-black border border-green-500/50 rounded-lg mb-6"
           >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            <span className="text-sm text-green-400 font-mono">[STATUS: AVAILABLE_FOR_HIRE]</span>
+            <span className="text-sm text-green-400 font-mono">[STATUS: AVAILABLE_FOR_PROJECTS]</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-6xl font-mono font-bold mb-6 text-green-400">
@@ -200,7 +193,7 @@ const Contact = () => {
                   &gt;_ init_project()
                 </h3>
                 <p className="text-green-600 mb-6 leading-relaxed font-mono text-sm">
-                  // Available for: freelance, full-time, collaboration
+                  // Available for: freelance projects
                   <br />
                   // Status: READY_TO_EXECUTE
                 </p>

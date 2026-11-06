@@ -2,81 +2,63 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github, Folder } from 'lucide-react'
 import { useState } from 'react'
 
+// github: null -> the GitHub button is hidden for that card
 const projects = [
-  // Mobile Apps
   {
-    title: 'ServiceConnect Pro',
-    description: 'Full-stack mobile platform connecting clients with verified service professionals. Features JWT authentication, email verification, booking system, ratings & reviews, and real-time notifications.',
-    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop',
-    tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS', 'JWT'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khdmitk-app',
-    live: 'https://fi-khidmatik.vercel.app',
-    category: 'mobile',
+    title: 'ToolsForge',
+    problem: 'Freelancers and small businesses pay for subscriptions just to make an invoice or contract.',
+    built: 'A free, no-signup web app with invoice, contract and mortgage calculators and generators.',
+    result: 'Live SaaS product on Vercel.',
+    image: '/projects/toolsforge.jpg',
+    tech: ['Next.js', 'TypeScript', 'Vercel'],
+    github: null,
+    live: 'https://toolsforge-app.vercel.app',
   },
-  // Web Apps
   {
-    title: 'TradeHub Platform',
-    description: 'Full-stack trading platform featuring real-time market data, secure user authentication, transaction management, and comprehensive admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://meditrade-app.vercel.app/',
-    category: 'web',
+    title: 'GasManager.ma',
+    problem: 'A gas station was tracking stock and sales by hand.',
+    built: 'A management dashboard for inventory, sales and daily operations.',
+    result: 'Live on Vercel, used daily by a gas station in Morocco.',
+    note: 'Demo: demo@gasmanager.ma / Demo1234!',
+    image: '/projects/gasmanager.jpg',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Vercel'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/-gas-manager',
+    live: 'https://gas-manager-tan.vercel.app',
+  },
+  {
+    title: 'Salon Nour',
+    problem: 'Salons juggle bookings, reminders and client records across phone calls and notebooks.',
+    built: 'A multi-salon SaaS platform: online booking, SMS/WhatsApp reminders and client management.',
+    result: 'Live SaaS on Vercel, with a 30-day free trial for new salons.',
+    image: '/projects/salon-nour.jpg',
+    tech: ['Next.js', 'TypeScript', 'MongoDB', 'Tailwind'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/noursalon-app',
+    live: 'https://noursalon-app.vercel.app',
+  },
+  {
+    title: 'Fi-Khidmatik',
+    problem: 'Clients struggle to find and book verified craftsmen — a service marketplace was missing.',
+    built: 'A full-stack service marketplace with JWT auth, email verification, booking, reviews and notifications.',
+    result: 'Live on Vercel.',
+    image: '/projects/fi-khidmatik.jpg',
+    tech: ['Next.js', 'React', 'MongoDB', 'TailwindCSS', 'EmailJS', 'JWT'],
+    github: 'https://github.com/abdellatif6abouhafs-elidrissi/fi-khidmatik',
+    live: 'https://fi-khidmatik.vercel.app',
   },
   {
     title: 'ShopHub E-Commerce',
-    description: 'Full-stack e-commerce platform with Stripe payments, user authentication, shopping cart, order management, product catalog, and admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop',
+    problem: 'Small stores need online selling without stitching tools together.',
+    built: 'A full-stack store with Stripe payments, auth, cart, orders and an admin dashboard.',
+    result: 'Live on Vercel.',
+    image: '/projects/shophub.jpg',
     tech: ['Next.js', 'MongoDB', 'Stripe', 'TailwindCSS', 'NextAuth'],
     github: 'https://github.com/abdellatif6abouhafs-elidrissi/shophub',
     live: 'https://ecommerce-store-lyart-seven.vercel.app',
-    category: 'web',
   },
-  {
-    title: 'CreativeStudio Portfolio',
-    description: 'Premium portfolio template with advanced GSAP animations, Three.js 3D elements, dynamic galleries, testimonials carousel, and EmailJS contact integration.',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
-    tech: ['React', 'GSAP', 'Three.js', 'Tailwind CSS'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://designer-portfolio-opal-kappa.vercel.app/',
-    category: 'web',
-  },
-  {
-    title: 'Analytics Dashboard',
-    description: 'Feature-rich admin dashboard for e-commerce with real-time analytics, order management, inventory tracking, and interactive data visualizations.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    tech: ['React', 'Chart.js', 'Tailwind CSS', 'REST API'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://ecommerce-dashboard-xi-one.vercel.app/',
-    category: 'web',
-  },
-  {
-    title: 'MediBook System',
-    description: 'Healthcare appointment management system with doctor profiles, smart scheduling, patient records, and automated appointment reminders.',
-    image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://medifast.vercel.app/',
-    category: 'mobile',
-  },
-    {
-    title: 'MinimalFolio',
-    description: 'Clean, minimalist portfolio design focused on user experience, featuring smooth page transitions and elegant typography.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-    tech: ['React', 'Tailwind CSS', 'Vercel'],
-    github: 'https://github.com/abdellatif6abouhafs-elidrissi',
-    live: 'https://v0-portfolio-website-woad-eight-87.vercel.app/',
-    category: 'web',
-  },
-]
-
-const categories = [
-  { id: 'all', label: 'All Projects' },
-  { id: 'web', label: 'Web Apps' },
-  { id: 'mobile', label: 'Mobile Apps' },
 ]
 
 const ProjectCard = ({ project, index }) => {
+  const launchUrl = project.live
   const [isHovered, setIsHovered] = useState(false)
   const [colorIndex, setColorIndex] = useState(0)
   const colors = ['#EF4444', '#EAB308', '#22C55E'] // red, yellow, green
@@ -164,6 +146,7 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Overlay Icons */}
           <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            {project.github && (
             <motion.a
               href={project.github}
               target="_blank"
@@ -174,8 +157,9 @@ const ProjectCard = ({ project, index }) => {
             >
               <Github className="w-5 h-5 text-green-400 group-hover:text-black" />
             </motion.a>
+            )}
             <motion.a
-              href={project.live}
+              href={launchUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 bg-black/90 border border-cyan-500 rounded-full hover:bg-cyan-500 hover:text-black transition-all"
@@ -196,9 +180,22 @@ const ProjectCard = ({ project, index }) => {
             </h3>
           </div>
 
-          <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 font-mono">
-            {project.description}
-          </p>
+          <dl className="text-gray-400 text-sm leading-relaxed mb-4 flex-1 font-mono space-y-2">
+            {[
+              ['Problem', project.problem],
+              ['Built', project.built],
+              ['Result', project.result],
+            ].map(([label, text]) => (
+              <div key={label}>
+                <dt className="inline text-green-500 font-bold">&gt;_ {label}: </dt>
+                <dd className="inline">{text}</dd>
+              </div>
+            ))}
+          </dl>
+
+          {project.note && (
+            <p className="text-xs font-mono text-green-500/80 mb-4 break-all">{project.note}</p>
+          )}
 
           {/* Tech Stack */}
           <div className="flex flex-wrap gap-2 mb-4">
@@ -216,7 +213,7 @@ const ProjectCard = ({ project, index }) => {
           <div className="flex gap-3">
             {/* Live Demo Button */}
             <motion.a
-              href={project.live}
+              href={launchUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 relative overflow-hidden group/btn"
@@ -239,6 +236,7 @@ const ProjectCard = ({ project, index }) => {
             </motion.a>
 
             {/* GitHub Button */}
+            {project.github && (
             <motion.a
               href={project.github}
               target="_blank"
@@ -251,6 +249,7 @@ const ProjectCard = ({ project, index }) => {
                 <Github className="w-5 h-5" />
               </div>
             </motion.a>
+            )}
           </div>
         </div>
       </motion.div>
@@ -259,12 +258,6 @@ const ProjectCard = ({ project, index }) => {
 }
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('all')
-
-  const filteredProjects = activeCategory === 'all'
-    ? projects
-    : projects.filter(p => p.category === activeCategory)
-
   return (
     <section id="projects" className="section-padding bg-dark-secondary/30">
       <div className="container-custom">
@@ -273,49 +266,24 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
             <span className="text-green-500 font-mono">$</span> Featured <span className="text-green-400">Projects</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience
+            Real products I've built and shipped — not demos
           </p>
-        </motion.div>
-
-        {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {categories.map((category) => (
-            <motion.button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-3 font-mono text-sm font-bold rounded-lg border-2 transition-all duration-300 ${
-                activeCategory === category.id
-                  ? 'bg-green-500 text-black border-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)]'
-                  : 'bg-black text-green-400 border-green-500/50 hover:border-green-500 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)]'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              [{category.label.toUpperCase()}]
-            </motion.button>
-          ))}
         </motion.div>
 
         {/* Projects Grid */}
         <motion.div
-          key={activeCategory}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </motion.div>

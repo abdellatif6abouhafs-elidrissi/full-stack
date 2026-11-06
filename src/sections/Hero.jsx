@@ -71,8 +71,8 @@ const HackerTerminal = () => {
 
   const text1 = './profile.sh'
   const text2 = '[+] Loading developer profile...'
-  const text3 = '[+] Skills: React.js | Node.js | MongoDB'
-  const text4 = "> Ready to build amazing web applications! <"
+  const text3 = '[+] Stack: Next.js | TypeScript | MongoDB'
+  const text4 = "> Shipping production SaaS <"
 
   useEffect(() => {
     // Reset all states at start of each cycle
@@ -247,7 +247,7 @@ const Particles = () => {
 }
 
 const Hero = () => {
-  const roles = ['Junior Full-Stack Developer', 'React.js Specialist', 'Node.js Developer', 'MERN Stack Developer']
+  const roles = ['Full-Stack Developer', 'Next.js & TypeScript', 'SaaS Builder', 'Node.js & MongoDB']
 
   // Full text with name - marking which letters are part of the name
   const fullText = "Abdellatif Abouhafss"
@@ -351,7 +351,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-&gt;_ Junior Full-Stack Developer | Open to Work
+&gt;_ Full-Stack Developer | Available for Projects
             </motion.span>
           </motion.span>
         </motion.div>
@@ -415,9 +415,10 @@ const Hero = () => {
           transition={{ delay: 2.8, duration: 0.6 }}
           className="text-gray-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-mono text-center"
         >
-          Passionate about building modern, scalable web applications with React.js, Node.js, and MongoDB.
-          I transform ideas into clean, efficient code that delivers exceptional user experiences.
-          Currently seeking opportunities to contribute to innovative projects.
+          <span className="block text-white text-xl md:text-2xl font-bold mb-3">
+            Full-Stack Developer — I build web apps and SaaS products that businesses actually use.
+          </span>
+          Next.js, TypeScript, MongoDB. From idea to live product: design, build, deploy, maintain.
         </motion.p>
 
         {/* Stats */}
@@ -425,12 +426,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3 }}
-          className="flex justify-center gap-8 mb-10"
+          className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10"
         >
           {[
-            { value: 8, label: 'Projects', suffix: '+' },
-            { value: 2, label: 'Years Learning', suffix: '+' },
-            { value: 10, label: 'Technologies', suffix: '+' },
+            { value: 5, label: 'Projects', suffix: '' },
+            { value: 2, label: 'Years Building', suffix: '+' },
+            { value: 3, label: 'Live SaaS Products', suffix: '' },
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -480,7 +481,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-5 h-5 group-hover:animate-bounce" />
-            [DOWNLOAD_CV]
+            [DOWNLOAD_RESUME]
           </motion.a>
         </motion.div>
 
